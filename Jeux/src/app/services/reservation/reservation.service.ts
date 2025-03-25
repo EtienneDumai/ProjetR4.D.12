@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Reservation } from '../../models/reservation.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
-  getReservations(): Reservation[] {
-    return [
+  getReservations(): Observable<Reservation[]> {
+    return of ([
       {
         idReservation: 1,
         nomClient: "Jean",
@@ -28,12 +29,15 @@ export class ReservationService {
         platefrome: "PC",
         dateDeReservation: new Date("2023-04-12"),
         statutReservation: "Confirmée"
-      }];
+      }]);
   }
-  getreservationById(id: number): Reservation {
-    const reservation = this.getReservations().find((reservation) => reservation.idReservation === id);
+  getreservationById(id: number): Observable<Reservation> {
+    let reservation: Reservation | undefined;
+    this.getReservations().subscribe((reservations) =>{
+      reservation = reservations.find(reservation => reservation.idReservation === id);
+    } );
     if (reservation) {
-      return reservation;
+      return of(reservation);
     } else {
       throw new Error('Reservation not found');
     }

@@ -24,3 +24,15 @@
   /* Petit padding pour respirer */
   padding: 16px;
 }
+.sidenav-container {
+  height: 100vh; /* Prend toute la hauteur de l'écran */
+}
+
+mat-sidenav {
+  width: 250px; /* Largeur du menu latéral */
+}
+
+mat-sidenav-content {
+  padding: 0;
+  height: 100%;
+}

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { JeuVideo } from '../../models/jeu-video.model';
+import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class JeuVideoService {
   constructor() { }
-  getJeuxVideo(): JeuVideo[] {
-    return [
+  getJeuxVideo(): Observable<JeuVideo[]> {
+    return of([
       {
         id: 1,
         titre: "War Thunder",
@@ -34,12 +35,15 @@ export class JeuVideoService {
         dateSortie: new Date("1996-06-23"),
         stock: 5
       }
-    ]
+    ])
   }
-  getJeuVideoById(id: number): JeuVideo {
-    const JeuVideo = this.getJeuxVideo().find((jeu) => jeu.id === id);
-    if (JeuVideo) {
-      return JeuVideo;
+  getJeuVideoById(id: number): Observable<JeuVideo> {
+    let jeuVideo: JeuVideo | undefined;
+    this.getJeuxVideo().subscribe((jeux) =>{
+      jeuVideo = jeux.find(jeu => jeu.id === id);
+    });
+    if (jeuVideo) {
+      return of(jeuVideo);
     } else {
       throw new Error('Game not found');
     }
