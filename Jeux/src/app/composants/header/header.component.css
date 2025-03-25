@@ -1,0 +1,26 @@
+.main-container {
+  /* 
+     * Laisse la hauteur gérer le contenu.
+     * Si tu mets 100vh, tu obliges tout à prendre la taille de l’écran,
+     * ce qui peut être bien ou pas selon ton layout.
+     */
+  height: auto;
+  /* Permet le scroll normal si le contenu dépasse la hauteur */
+  display: block;
+}
+
+.side-nav {
+  width: 250px;
+}
+
+.top-toolbar {
+  /* On la fixe en haut pour qu’elle reste visible en scrollant */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Pour être au-dessus du contenu */
+}
+
+.content {
+  /* Petit padding pour respirer */
+  padding: 16px;
+}

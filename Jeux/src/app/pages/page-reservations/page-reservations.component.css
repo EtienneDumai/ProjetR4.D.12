@@ -1,0 +1,4 @@
+.page-content {
+  margin-top: 64px; /* Pour éviter que le contenu passe sous le header fixe */
+  padding: 16px;
+}

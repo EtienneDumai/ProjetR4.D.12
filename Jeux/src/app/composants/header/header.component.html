@@ -1,1 +1,22 @@
-<p>header works!</p>
+<mat-sidenav-container class="sidenav-container">
+    <!-- Panneau qui s'étend du haut en bas sur la gauche -->
+    <mat-sidenav #drawer mode="over" class="sidenav" (click)="drawer.close()">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/">Accueil</a>
+            <a mat-list-item routerLink="/liste-reservations">À propos</a>
+            <a mat-list-item routerLink="/ajouter-reservation">Contact</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Contenu principal du container -->
+    <mat-sidenav-content mode="over">
+        <!-- Barre de header qui reste de hauteur fixe -->
+        <mat-toolbar color="primary" class="header-toolbar">
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="app-title">Reservation de jeux vidéos</span>
+            <span class="spacer"></span>
+        </mat-toolbar>
+    </mat-sidenav-content>
+</mat-sidenav-container>
