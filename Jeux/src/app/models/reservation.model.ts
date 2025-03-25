@@ -1,4 +1,5 @@
 export class Reservation {
+    idReservation: number;
     nomClient: string;
     emailClient: string;
     numTelephoneClient: number;
@@ -7,7 +8,8 @@ export class Reservation {
     platefrome: string;
     dateDeReservation: Date;
     statutReservation: string;
-    constructor(leNomClient: string, leEmailClient: string, leNumTelephoneClient: number, leIdJeuReserve:number, leTitreJeuReserve: string, laPlateforme: string, laDateDeReservation: Date, leStatutReservation: string) {
+    constructor(leIdReservation:number, leNomClient: string, leEmailClient: string, leNumTelephoneClient: number, leIdJeuReserve:number, leTitreJeuReserve: string, laPlateforme: string, laDateDeReservation: Date, leStatutReservation: string) {
+        this.idReservation = leIdReservation;
         this.nomClient = leNomClient;
         this.emailClient = leEmailClient;
         this.numTelephoneClient = leNumTelephoneClient;
