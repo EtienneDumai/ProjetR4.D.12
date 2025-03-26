@@ -7,12 +7,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReservationService } from '../../services/reservation/reservation.service';
+import { MatCardModule } from '@angular/material/card';
 import { Reservation } from '../../models/reservation.model';
 
 @Component({
   selector: 'app-page-reservations',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatButtonModule, MatListModule, MatGridListModule],
+  imports: [CommonModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatButtonModule, MatListModule, MatGridListModule, MatCardModule],
   templateUrl: './page-reservations.component.html',
   styleUrl: './page-reservations.component.css'
 })

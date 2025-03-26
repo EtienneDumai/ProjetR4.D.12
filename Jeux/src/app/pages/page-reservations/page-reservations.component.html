@@ -1,12 +1,24 @@
 @if(listReservations){
-<div>
-    @for(reservation of listReservations; track $index){
-    <mat-grid-list cols="2" rowHeight="1:1">
-        <mat-grid-tile>Réservation n° {{reservation.idReservation}}</mat-grid-tile>
-        <mat-grid-tile>Réservation n° {{reservation.idReservation}}</mat-grid-tile>
-        <mat-grid-tile>Réservation n° {{reservation.idReservation}}</mat-grid-tile>
-        <mat-grid-tile>Réservation n° {{reservation.idReservation}}</mat-grid-tile>
+<div><mat-grid-list cols="2" rowHeight="2:1">
+        @for(reservation of listReservations; track $index){
+
+        <mat-grid-tile>
+            <mat-card class="center">
+                <mat-card-title>
+                    n° {{reservation.idReservation}}
+                </mat-card-title>
+                <mat-card-content>
+                    <p>Nom du client : {{reservation.nomClient}}</p>
+                    <p>Date de réservation : {{reservation.dateDeReservation |  date:'dd/MM/yyyy'}}</p>
+                    <p>Statut de la réservation : {{reservation.statutReservation}}</p>
+                    <p>Jeu réservé : {{reservation.titreJeuReserve}}</p>
+                    <p>Plateforme : {{reservation.platefrome}}</p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        }
     </mat-grid-list>
-    }
+
 </div>
 }
+<!--- -->
