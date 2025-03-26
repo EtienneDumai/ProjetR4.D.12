@@ -1,1 +1,23 @@
 <p>ajouter-reservation works!</p>
+<div class="center">
+    <form [formGroup]="formReservation" >
+        <mat-form-field>
+        <mat-label for="nomClient">Nom du client</mat-label>
+        <input matInput type="text" formControlName="nomClient">
+        </mat-form-field>
+        <mat-form-field><mat-label for="emailClient">Email du client</mat-label>
+            <input matInput type="text" formControlName="emailClient">
+        </mat-form-field>
+        <br>
+        <mat-form-field><mat-label for="numTelephoneClient">Nunmero de téléphone du client</mat-label>
+            <input matInput type="text" formControlName="numTelephoneClient">
+        </mat-form-field>
+        <mat-form-field> <mat-label for="nomClient">Nom du client</mat-label>
+            <input matInput type="text" formControlName="nomClient">
+        </mat-form-field>
+        <br>
+        <mat-form-field><mat-label for="nomClient">Nom du client</mat-label>
+            <input matInput type="text" formControlName="nomClient">
+        </mat-form-field>
+    </form>
+</div>

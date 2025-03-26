@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { provideRouter } from '@angular/router';
 
+import { ListeReservationComponent } from './composants/liste-reservation/liste-reservation.component';
 import { AjouterReservationComponent } from './pages/ajouter-reservation/ajouter-reservation.component';
 import { PageReservationsComponent } from './pages/page-reservations/page-reservations.component';
 
