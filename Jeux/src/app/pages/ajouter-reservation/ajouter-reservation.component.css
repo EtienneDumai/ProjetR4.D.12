@@ -3,3 +3,19 @@
   justify-content: center;
   align-items: center;
 }
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* espacement vertical entre les champs */
+}
+
+.form mat-form-field {
+  width: 100%; /* chaque input prend toute la largeur disponible */
+}

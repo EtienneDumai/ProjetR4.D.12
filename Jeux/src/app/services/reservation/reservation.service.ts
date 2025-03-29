@@ -15,7 +15,7 @@ export class ReservationService {
         numTelephoneClient: 1234567890,
         idJeuReserve: 2,
         titreJeuReserve: "Dora sauve la princesse des neiges",
-        platefrome: "Nintendo DS",
+        plateforme: "Nintendo DS",
         dateDeReservation: new Date("2021-03-12"),
         statutReservation: "En attente"
       },
@@ -26,7 +26,7 @@ export class ReservationService {
         numTelephoneClient: 7028010140,
         idJeuReserve: 1,
         titreJeuReserve: "War Thunder",
-        platefrome: "PC",
+        plateforme: "PC",
         dateDeReservation: new Date("2023-04-12"),
         statutReservation: "Confirmée"
       }]);
@@ -41,6 +41,13 @@ export class ReservationService {
     } else {
       throw new Error('Reservation not found');
     }
+  }
+  addReservation(reservation: Reservation): Observable<Reservation> {
+    let reservations: Reservation[] = [];
+    this.getReservations().subscribe((reservations) => {
+      reservations.push(reservation);
+    });
+    return of(reservation);
   }
   constructor() { }
 }

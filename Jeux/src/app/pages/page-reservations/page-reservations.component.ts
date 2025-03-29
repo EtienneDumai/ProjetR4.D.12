@@ -21,6 +21,6 @@ export class PageReservationsComponent implements OnInit {
   private readonly reservationService : ReservationService = inject(ReservationService);
   listReservations!: Reservation[];
   ngOnInit() {
-    this.reservationService.getReservations().subscribe(reservations => this.listReservations = reservations);
+    this.reservationService.getReservations().subscribe(reservations => {this.listReservations = reservations});
   }
 }
