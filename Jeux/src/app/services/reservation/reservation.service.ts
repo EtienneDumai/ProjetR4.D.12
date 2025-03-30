@@ -1,53 +1,46 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Reservation } from '../../models/reservation.model';
-import { Observable, of } from 'rxjs';
-
+import { Observable, of, switchMap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { JeuVideo } from '../../models/jeu-video.model';
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
+  private readonly http : HttpClient = inject(HttpClient);
   getReservations(): Observable<Reservation[]> {
-    return of ([
-      {
-        idReservation: 1,
-        nomClient: "Jean",
-        emailClient: "jean.dupont@gmail.com",
-        numTelephoneClient: 1234567890,
-        idJeuReserve: 2,
-        titreJeuReserve: "Dora sauve la princesse des neiges",
-        plateforme: "Nintendo DS",
-        dateDeReservation: new Date("2021-03-12"),
-        statutReservation: "En attente"
-      },
-      {
-        idReservation: 2,
-        nomClient: "Etienne",
-        emailClient: "etienne.dumai@gmail.com",
-        numTelephoneClient: 7028010140,
-        idJeuReserve: 1,
-        titreJeuReserve: "War Thunder",
-        plateforme: "PC",
-        dateDeReservation: new Date("2023-04-12"),
-        statutReservation: "Confirmée"
-      }]);
+    return this.http.get<Reservation[]>('http://localhost:3000/Reservations');
   }
   getreservationById(id: number): Observable<Reservation> {
-    let reservation: Reservation | undefined;
-    this.getReservations().subscribe((reservations) =>{
-      reservation = reservations.find(reservation => reservation.idReservation === id);
-    } );
-    if (reservation) {
-      return of(reservation);
-    } else {
-      throw new Error('Reservation not found');
-    }
+    return this.http.get<Reservation>(`http://localhost:3000/Reservations/${id}`);
   }
-  addReservation(reservation: Reservation): Observable<Reservation> {
-    let reservations: Reservation[] = [];
+  addReservation(reservation: Reservation): boolean {
     this.getReservations().subscribe((reservations) => {
       reservations.push(reservation);
+      return true;
     });
-    return of(reservation);
+    return false;
   }
-  constructor() { }
+  addNewReservation(nouvReservation: Reservation): Observable<Reservation> {
+    console.log('Je vais ajouter la reservation dans le tableau de reservations');
+    return this.getReservations().pipe(
+      switchMap((reservations) => {
+        let maxId = 0;
+        reservations.forEach((r) => {
+          if (r.idReservation > maxId) {
+            maxId = r.idReservation;
+          }
+        });
+        
+        nouvReservation.idReservation = maxId + 1;
+        return this.http.post<Reservation>('http://localhost:3000/Reservations', nouvReservation);
+      })
+    );
+  }
+  getJeuxVideo(): Observable<JeuVideo[]> {
+    return this.http.get<JeuVideo[]>('http://localhost:3000/Jeux');
+  }
+  getJeuVideoById(id: number): Observable<JeuVideo> {
+    return this.http.get<JeuVideo>(`http://localhost:3000/Jeux/${id}`);
+  }
 }
