@@ -12,17 +12,13 @@ import { Reservation } from '../../models/reservation.model';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule, Routes } from '@angular/router';
 @Component({
-  selector: 'app-ajouter-reservation',
+  selector: 'app-modifier-reservation',
   standalone: true,
   imports: [HeaderComponent, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatDatepickerModule, MatButtonModule],
-  providers: [
-    provideNativeDateAdapter(),
-    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }
-  ],
-  templateUrl: './ajouter-reservation.component.html',
-  styleUrl: './ajouter-reservation.component.css'
+  templateUrl: './modifier-reservation.component.html',
+  styleUrl: './modifier-reservation.component.css'
 })
-export class AjouterReservationComponent implements OnInit {
+export class ModifierReservationComponent implements OnInit{
   private readonly reservationService: ReservationService = inject(ReservationService);
   private readonly router: Router = inject(Router);
   public formReservation: FormGroup = new FormGroup({
@@ -33,7 +29,6 @@ export class AjouterReservationComponent implements OnInit {
     plateforme: new FormControl('', [Validators.required]),
     dateDeReservation: new FormControl('', [Validators.required]),
     statutReservation: new FormControl('', [Validators.required]),
-
   });
   currentReservation!: Reservation;
   listeJeux: JeuVideo[] = [];
@@ -49,41 +44,5 @@ export class AjouterReservationComponent implements OnInit {
       console.log('Liste des reservations:', this.listeReservations);
     });
   }
-  onSubmit() {
-    console.log('je vais créer une nouvelle reservation');
-    let idJeuReserve = this.formReservation.value.idJeuReserve;
-    console.log('Je vais chrchezr l\id du jeu reserve');
-    let jeuVideo: JeuVideo | undefined  = this.listeJeux.find((jeu) => jeu.id === idJeuReserve);
-    console.log('je vais chercher l\'id de reservation le plus haut');
-    //Recuperer l'id le plus elevé de toutes les reservations existantes
-    this.listeReservations.forEach((reservation) => {
-      if (reservation.idReservation > this.maxIdReservation) {
-        this.maxIdReservation = reservation.idReservation;
-      }
-    });
-    console.log('id le plus haut:', this.maxIdReservation);
-    console.log('je vais créer une nouvelle reservation (l\'objet)');
-    let newReservation: Reservation = {
-      idReservation: this.maxIdReservation + 1,
-      nomClient: this.formReservation.value.nomClient,
-      emailClient: this.formReservation.value.emailClient,
-      numTelephoneClient: this.formReservation.value.numTelephoneClient,
-      idJeuReserve: this.formReservation.value.idJeuReserve,
-      titreJeuReserve: jeuVideo?.titre ?? '',
-      plateforme: jeuVideo?.plateforme ?? '',
-      dateDeReservation: this.formReservation.value.dateDeReservation,
-      statutReservation: this.formReservation.value.statutReservation
-    };
-    console.log('Nouvelle reservation:', newReservation);
-
-    this.reservationService.addNewReservation(newReservation).subscribe( {
-      next: (reservation) => { 
-        console.log('Reservation ajoutée:', reservation);
-        this.router.navigateByUrl('');
-      },
-      error: (err) => { console.error(err); }
-    });
-    console.log('Reservation added:', newReservation);
-    console.log('Voici le nouveaux tableau de reservations:', this.listeReservations);
-  }
+  onSubmit() {}
 }

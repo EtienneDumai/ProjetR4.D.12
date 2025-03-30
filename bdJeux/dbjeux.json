@@ -1,5 +1,5 @@
 {
-  "Reservations": [
+  "Reservation": [
     {
       "idReservation": 1,
       "nomClient": "Jean",
@@ -9,7 +9,8 @@
       "titreJeuReserve": "Dora sauve la princesse des neiges",
       "plateforme": "Nintendo DS",
       "dateDeReservation": "2021-03-12",
-      "statutReservation": "En attente"
+      "statutReservation": "En attente",
+      "id": "7764"
     },
     {
       "idReservation": 2,
@@ -20,28 +21,55 @@
       "titreJeuReserve": "War Thunder",
       "plateforme": "PC",
       "dateDeReservation": "2023-04-12",
+      "statutReservation": "Confirmée",
+      "id": "80dc"
+    },
+    {
+      "id": "a7a4",
+      "idReservation": 3,
+      "nomClient": "qsdqsdq",
+      "emailClient": "qsdqsq",
+      "numTelephoneClient": "qsdqsd",
+      "idJeuReserve": "2",
+      "titreJeuReserve": "",
+      "plateforme": "",
+      "dateDeReservation": "2025-03-11T23:00:00.000Z",
       "statutReservation": "Confirmée"
+    },
+    {
+      "id": "c93b",
+      "idReservation": 4,
+      "nomClient": "sqdqsd",
+      "emailClient": "qsdqsd",
+      "numTelephoneClient": "qsdqsd",
+      "idJeuReserve": "2",
+      "titreJeuReserve": "Dora sauve la princesse des neiges",
+      "plateforme": "Nintendo DS",
+      "dateDeReservation": "2025-03-12T23:00:00.000Z",
+      "statutReservation": "En attente"
     }
   ],
   "Jeux": [
     {
-      "idJeu": 1,
-      "titreJeu": "War Thunder",
+      "id": "1",
+      "titre": "War Thunder",
       "plateforme": "PC",
-      "prixLocation": 5.99,
-      "description": "War Thunder est un jeu de combat aérien et terrestre. Il est gratuit et disponible sur PC.",
-      "image": "warthunder.jpg"
+      "genre": "Simulation",
+      "developpeur": "Gaijin Entertainment",
+      "dateSortie": "2012-12-21",
+      "stock": 10
     },
     {
-      "idJeu": 2,
-      "titreJeu": "Dora sauve la princesse des neiges",
+      "id": "2",
+      "titre": "Dora sauve la princesse des neiges",
       "plateforme": "Nintendo DS",
-      "prixLocation": 2.99,
-      "description": "Dora sauve la princesse des neiges est un jeu d'aventure pour enfants. Il est disponible sur Nintendo DS.",
-      "image": "dora.jpg"
+      "genre": "Aventure",
+      "developpeur": "2K Play",
+      "dateSortie": "2009-01-30",
+      "stock": 25
     },
     {
-      "id": 3,
+      "id": "3",
       "titre": "Super Mario Pyrénnées Atlantiques",
       "plateforme": "Nintendo 64",
       "genre": "Plateforme",

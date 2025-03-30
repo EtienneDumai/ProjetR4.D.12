@@ -9,17 +9,10 @@ import { JeuVideo } from '../../models/jeu-video.model';
 export class ReservationService {
   private readonly http : HttpClient = inject(HttpClient);
   getReservations(): Observable<Reservation[]> {
-    return this.http.get<Reservation[]>('http://localhost:3000/Reservations');
+    return this.http.get<Reservation[]>('http://localhost:3000/Reservation');
   }
   getreservationById(id: number): Observable<Reservation> {
-    return this.http.get<Reservation>(`http://localhost:3000/Reservations/${id}`);
-  }
-  addReservation(reservation: Reservation): boolean {
-    this.getReservations().subscribe((reservations) => {
-      reservations.push(reservation);
-      return true;
-    });
-    return false;
+    return this.http.get<Reservation>(`http://localhost:3000/Reservation/${id}`);
   }
   addNewReservation(nouvReservation: Reservation): Observable<Reservation> {
     console.log('Je vais ajouter la reservation dans le tableau de reservations');
@@ -33,14 +26,31 @@ export class ReservationService {
         });
         
         nouvReservation.idReservation = maxId + 1;
-        return this.http.post<Reservation>('http://localhost:3000/Reservations', nouvReservation);
+        return this.http.post<Reservation>('http://localhost:3000/Reservation', nouvReservation);
       })
     );
+  }
+  replaceReservation(reservationModified: Reservation): Observable<Reservation> { 
+    return this.http.put<Reservation>(`http://localhost:3000/Reservation/${reservationModified.idReservation}`, reservationModified);
   }
   getJeuxVideo(): Observable<JeuVideo[]> {
     return this.http.get<JeuVideo[]>('http://localhost:3000/Jeux');
   }
   getJeuVideoById(id: number): Observable<JeuVideo> {
     return this.http.get<JeuVideo>(`http://localhost:3000/Jeux/${id}`);
+  }
+  getJeuVideoTitreById(id: number): Observable<string> {
+    return this.getJeuVideoById(id).pipe(
+      switchMap((jeu) => {
+        return of(jeu.titre);
+      })
+    );
+  }
+  getJeuVideoPlateformeById(id: number): Observable<string> {
+    return this.getJeuVideoById(id).pipe(
+      switchMap((jeu) => {
+        return of(jeu.plateforme);
+      })
+    );
   }
 }

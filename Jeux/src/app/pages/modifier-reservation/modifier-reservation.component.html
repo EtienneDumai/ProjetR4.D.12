@@ -1,0 +1,41 @@
+<p>modifier-reservation works!</p>
+<div class="center">
+    <form [formGroup]="formReservation" style="width: 600px;" class="form">
+        <mat-form-field>
+            <mat-label for="nomClient">Nom du client</mat-label>
+            <input matInput type="text" formControlName="nomClient">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="emailClient">Email du client</mat-label>
+            <input matInput type="text" formControlName="emailClient">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="numTelephoneClient">Numero de téléphone du client</mat-label>
+            <input matInput type="text" formControlName="numTelephoneClient">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="idJeuReserve">Nom du jeu</mat-label>
+            <mat-select formControlName="idJeuReserve">
+                @for(jeu of listeJeux; track jeu.id){
+                <mat-option [value]="jeu.id">{{jeu.titre}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="dateDeReservation">Date de la réservation</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateDeReservation">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="statutReservation">Statue de la réservation</mat-label>
+            <mat-select formControlName="statutReservation">
+                <mat-option value="En attente">En attente</mat-option>
+                <mat-option value="Confirmée">Confirmée</mat-option>
+                <mat-option value="Annulée">Annulée</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Ajouter la réservation</button>
+    </form>
+
+</div>
