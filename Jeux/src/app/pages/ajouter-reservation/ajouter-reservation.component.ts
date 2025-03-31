@@ -57,14 +57,14 @@ export class AjouterReservationComponent implements OnInit {
     console.log('je vais chercher l\'id de reservation le plus haut');
     //Recuperer l'id le plus elevé de toutes les reservations existantes
     this.listeReservations.forEach((reservation) => {
-      if (reservation.idReservation > this.maxIdReservation) {
-        this.maxIdReservation = reservation.idReservation;
+      if (reservation.id > this.maxIdReservation) {
+        this.maxIdReservation = reservation.id;
       }
     });
     console.log('id le plus haut:', this.maxIdReservation);
     console.log('je vais créer une nouvelle reservation (l\'objet)');
     let newReservation: Reservation = {
-      idReservation: this.maxIdReservation + 1,
+      id: this.maxIdReservation + 1,
       nomClient: this.formReservation.value.nomClient,
       emailClient: this.formReservation.value.emailClient,
       numTelephoneClient: this.formReservation.value.numTelephoneClient,

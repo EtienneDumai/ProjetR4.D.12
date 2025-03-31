@@ -9,7 +9,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ReservationService } from '../../services/reservation/reservation.service';
 import { MatCardModule } from '@angular/material/card';
 import { Reservation } from '../../models/reservation.model';
-
+import { HttpClient } from '@angular/common/http';
+import { Router, RouterModule, Routes } from '@angular/router';
 @Component({
   selector: 'app-page-reservations',
   standalone: true,
@@ -19,8 +20,25 @@ import { Reservation } from '../../models/reservation.model';
 })
 export class PageReservationsComponent implements OnInit {
   private readonly reservationService : ReservationService = inject(ReservationService);
+  private readonly httpClient: HttpClient = inject(HttpClient);
+  private readonly router : Router = inject(Router);
   listReservations!: Reservation[];
   ngOnInit() {
     this.reservationService.getReservations().subscribe(reservations => {this.listReservations = reservations});
+  }
+  onDeleteReservation(idReservation: number) {
+    this.httpClient
+      .delete(`http://localhost:3000/Reservation/${idReservation}`)
+      .subscribe({
+        next: () => {
+          console.log("Supprimé avec succès");
+        },
+        error: (err) => {
+          console.error("Erreur lors de la suppression :", err);
+        }
+      });
+  }
+  editreservation(id:number) {
+    this.router.navigate(['liste-reservation/edit', id]);
   }
 }

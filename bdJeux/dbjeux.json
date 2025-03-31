@@ -1,7 +1,7 @@
 {
   "Reservation": [
     {
-      "idReservation": 1,
+      "id": "1",
       "nomClient": "Jean",
       "emailClient": "jean.dupont@gmail.com",
       "numTelephoneClient": 1234567890,
@@ -9,24 +9,20 @@
       "titreJeuReserve": "Dora sauve la princesse des neiges",
       "plateforme": "Nintendo DS",
       "dateDeReservation": "2021-03-12",
-      "statutReservation": "En attente",
-      "id": "7764"
+      "statutReservation": "En attente"
     },
     {
-      "idReservation": 2,
-      "nomClient": "Etienne",
+      "nomClient": "Zob",
       "emailClient": "etienne.dumai@gmail.com",
       "numTelephoneClient": 7028010140,
       "idJeuReserve": 1,
-      "titreJeuReserve": "War Thunder",
       "plateforme": "PC",
       "dateDeReservation": "2023-04-12",
       "statutReservation": "Confirmée",
-      "id": "80dc"
+      "id": "2"
     },
     {
-      "id": "a7a4",
-      "idReservation": 3,
+      "id": "3",
       "nomClient": "qsdqsdq",
       "emailClient": "qsdqsq",
       "numTelephoneClient": "qsdqsd",
@@ -35,18 +31,6 @@
       "plateforme": "",
       "dateDeReservation": "2025-03-11T23:00:00.000Z",
       "statutReservation": "Confirmée"
-    },
-    {
-      "id": "c93b",
-      "idReservation": 4,
-      "nomClient": "sqdqsd",
-      "emailClient": "qsdqsd",
-      "numTelephoneClient": "qsdqsd",
-      "idJeuReserve": "2",
-      "titreJeuReserve": "Dora sauve la princesse des neiges",
-      "plateforme": "Nintendo DS",
-      "dateDeReservation": "2025-03-12T23:00:00.000Z",
-      "statutReservation": "En attente"
     }
   ],
   "Jeux": [

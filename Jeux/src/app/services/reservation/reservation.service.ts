@@ -20,19 +20,20 @@ export class ReservationService {
       switchMap((reservations) => {
         let maxId = 0;
         reservations.forEach((r) => {
-          if (r.idReservation > maxId) {
-            maxId = r.idReservation;
+          if (r.id > maxId) {
+            maxId = r.id;
           }
         });
         
-        nouvReservation.idReservation = maxId + 1;
+        nouvReservation.id = maxId + 1;
         return this.http.post<Reservation>('http://localhost:3000/Reservation', nouvReservation);
       })
     );
   }
-  replaceReservation(reservationModified: Reservation): Observable<Reservation> { 
-    return this.http.put<Reservation>(`http://localhost:3000/Reservation/${reservationModified.idReservation}`, reservationModified);
+  updateReservation(id: string, data: any): Observable<Reservation> {
+    return this.http.put<Reservation>(`http://localhost:3000/Reservation/${id}`, data);
   }
+  
   getJeuxVideo(): Observable<JeuVideo[]> {
     return this.http.get<JeuVideo[]>('http://localhost:3000/Jeux');
   }

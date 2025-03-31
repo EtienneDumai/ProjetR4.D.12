@@ -10,17 +10,22 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 import { Reservation } from '../../models/reservation.model';
 import { MatButtonModule } from '@angular/material/button';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-modifier-reservation',
   standalone: true,
   imports: [HeaderComponent, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatDatepickerModule, MatButtonModule],
+  providers: [
+    provideNativeDateAdapter(),
+    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }
+  ],
   templateUrl: './modifier-reservation.component.html',
   styleUrl: './modifier-reservation.component.css'
 })
-export class ModifierReservationComponent implements OnInit{
+export class ModifierReservationComponent implements OnInit {
   private readonly reservationService: ReservationService = inject(ReservationService);
   private readonly router: Router = inject(Router);
+  private readonly route: ActivatedRoute = inject(ActivatedRoute);
   public formReservation: FormGroup = new FormGroup({
     nomClient: new FormControl('', [Validators.required]),
     emailClient: new FormControl('', [Validators.required]),
@@ -34,7 +39,13 @@ export class ModifierReservationComponent implements OnInit{
   listeJeux: JeuVideo[] = [];
   listeReservations: Reservation[] = [];
   maxIdReservation: number = 0;
-  ngOnInit(): void {
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.reservationService.getreservationById(+id).subscribe(reservation => {
+        this.formReservation.patchValue(reservation);
+      });
+    }
     this.reservationService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
       this.listeJeux = jeux;
       console.log('Liste des jeux:', this.listeJeux);
@@ -44,5 +55,15 @@ export class ModifierReservationComponent implements OnInit{
       console.log('Liste des reservations:', this.listeReservations);
     });
   }
-  onSubmit() {}
+  onSubmit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.reservationService.updateReservation(id, this.formReservation.value).subscribe(() => {
+        console.log("Réservation mise à jour !");
+        // redirection par exemple :
+        this.router.navigateByUrl('');
+      });
+    }
+  }
 }
+
