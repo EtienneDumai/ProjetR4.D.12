@@ -7,7 +7,7 @@ import { JeuVideo } from '../../models/jeu-video.model';
   providedIn: 'root'
 })
 export class ReservationService {
-  private readonly http : HttpClient = inject(HttpClient);
+  private readonly http: HttpClient = inject(HttpClient);
   getReservations(): Observable<Reservation[]> {
     return this.http.get<Reservation[]>('http://localhost:3000/Reservation');
   }
@@ -16,24 +16,12 @@ export class ReservationService {
   }
   addNewReservation(nouvReservation: Reservation): Observable<Reservation> {
     console.log('Je vais ajouter la reservation dans le tableau de reservations');
-    return this.getReservations().pipe(
-      switchMap((reservations) => {
-        let maxId = 0;
-        reservations.forEach((r) => {
-          if (r.id > maxId) {
-            maxId = r.id;
-          }
-        });
-        
-        nouvReservation.id = maxId + 1;
-        return this.http.post<Reservation>('http://localhost:3000/Reservation', nouvReservation);
-      })
-    );
+    return this.http.post<Reservation>('http://localhost:3000/Reservation', nouvReservation);
   }
   updateReservation(id: string, data: any): Observable<Reservation> {
     return this.http.put<Reservation>(`http://localhost:3000/Reservation/${id}`, data);
   }
-  
+
   getJeuxVideo(): Observable<JeuVideo[]> {
     return this.http.get<JeuVideo[]>('http://localhost:3000/Jeux');
   }
