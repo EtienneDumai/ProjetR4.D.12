@@ -37,8 +37,12 @@ export class PageReservationsComponent implements OnInit {
           console.error("Erreur lors de la suppression :", err);
         }
       });
+      this.router.navigateByUrl('liste-reservations');
   }
   editreservation(id:number) {
     this.router.navigate(['liste-reservation/edit', id]);
+  }
+ addReservation() {
+    this.router.navigateByUrl('ajouter-reservation');
   }
 }

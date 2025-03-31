@@ -1,28 +1,35 @@
 @if(listReservations){
-<div><mat-grid-list cols="2" rowHeight="2:1">
+<div><mat-grid-list cols="1" rowHeight="2:1">
+        N° de réservation
+        Nom client
+        Date de reservation
+        Statut
+        Jeu réservé
+        Plateforme
         @for(reservation of listReservations; track $index){
+        <p>
 
-        <mat-grid-tile>
-            <mat-card class="center custom-border-card">
-                <mat-card-title>
-                    n° {{reservation.id}}
-                </mat-card-title>
-                <mat-card-content>
-                    <p>Nom du client : {{reservation.nomClient}}</p>
-                    <p>Date de réservation : {{reservation.dateDeReservation |  date:'dd/MM/yyyy'}}</p>
-                    <p>Statut de la réservation : {{reservation.statutReservation}}</p>
-                    <p>Jeu réservé : {{reservation.titreJeuReserve}}</p>
-                    <p>Plateforme : {{reservation.plateforme}}</p>
-                </mat-card-content>
-                <mat-card-footer>
-                    <button mat-raised-button color="primary" (click)="editreservation(reservation.id)">Modifier</button>
-                    <button mat-raised-button color="warn" (click)="onDeleteReservation(reservation.id)">Supprimer</button>
-                </mat-card-footer>
-            </mat-card>
-        </mat-grid-tile>
+
+
+            {{reservation.id}}
+
+
+            {{reservation.nomClient}}
+            {{reservation.dateDeReservation | date:'dd/MM/yyyy'}}
+            {{reservation.statutReservation}}
+            {{reservation.titreJeuReserve}}
+            {{reservation.plateforme}}
+        </p>
+        <button mat-raised-button color="primary" (click)="editreservation(reservation.id)">Modifier</button>
+        <button mat-raised-button color="warn" (click)="onDeleteReservation(reservation.id)">Supprimer</button>
+
+
+
         }
     </mat-grid-list>
 
 </div>
 }
+<br>
+<button mat-raised-button color="primary" (click)="addReservation()">Ajouter une réservation</button>
 <!--- -->

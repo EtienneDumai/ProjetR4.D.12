@@ -12,16 +12,6 @@
       "statutReservation": "En attente"
     },
     {
-      "nomClient": "Zob",
-      "emailClient": "etienne.dumai@gmail.com",
-      "numTelephoneClient": 7028010140,
-      "idJeuReserve": 1,
-      "plateforme": "PC",
-      "dateDeReservation": "2023-04-12",
-      "statutReservation": "Confirmée",
-      "id": "2"
-    },
-    {
       "id": 3,
       "nomClient": "test",
       "emailClient": "test",
@@ -31,6 +21,17 @@
       "plateforme": "PC",
       "dateDeReservation": "2025-03-19T23:00:00.000Z",
       "statutReservation": "Annulée"
+    },
+    {
+      "id": 4,
+      "nomClient": "test",
+      "emailClient": "test",
+      "numTelephoneClient": "test",
+      "idJeuReserve": "2",
+      "titreJeuReserve": "Dora sauve la princesse des neiges",
+      "plateforme": "Nintendo DS",
+      "dateDeReservation": "2025-03-01T23:00:00.000Z",
+      "statutReservation": "Confirmée"
     }
   ],
   "Jeux": [

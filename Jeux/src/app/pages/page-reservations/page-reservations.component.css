@@ -16,4 +16,5 @@
   border: 2px solid #6d00a0; /* Couleur personnalisable */
   border-radius: 8px; /* Coins arrondis */
   box-shadow: 0 4px 8px rgba(63, 81, 181, 0.2); /* Ombre douce (facultatif) */
+  padding: 20px !important;
 }
