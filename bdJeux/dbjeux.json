@@ -1,36 +1,14 @@
 {
   "Reservation": [
     {
-      "id": "1",
-      "nomClient": "Jean",
-      "emailClient": "jean.dupont@gmail.com",
-      "numTelephoneClient": 1234567890,
-      "idJeuReserve": 2,
-      "titreJeuReserve": "Dora sauve la princesse des neiges",
-      "plateforme": "Nintendo DS",
-      "dateDeReservation": "2021-03-12",
-      "statutReservation": "En attente"
-    },
-    {
-      "id": 3,
-      "nomClient": "test",
-      "emailClient": "test",
-      "numTelephoneClient": "jeqsdqsd",
-      "idJeuReserve": "1",
-      "titreJeuReserve": "War Thunder",
-      "plateforme": "PC",
-      "dateDeReservation": "2025-03-19T23:00:00.000Z",
-      "statutReservation": "Annulée"
-    },
-    {
-      "id": 4,
-      "nomClient": "test",
-      "emailClient": "test",
-      "numTelephoneClient": "test",
+      "id": 1,
+      "nomClient": "Etienne",
+      "emailClient": "etienne.dumai@gmail.com",
+      "numTelephoneClient": "0782501004",
       "idJeuReserve": "2",
       "titreJeuReserve": "Dora sauve la princesse des neiges",
       "plateforme": "Nintendo DS",
-      "dateDeReservation": "2025-03-01T23:00:00.000Z",
+      "dateDeReservation": "2025-12-03T23:00:00.000Z",
       "statutReservation": "Confirmée"
     }
   ],
@@ -61,6 +39,114 @@
       "developpeur": "Nintendo",
       "dateSortie": "1996-06-23",
       "stock": 5
+    },
+    {
+      "id": "4",
+      "titre": "Red Dead Redemption 2",
+      "plateforme": "PS4",
+      "genre": "Action-aventure",
+      "developpeur": "Rockstar Games",
+      "dateSortie": "2018-10-26",
+      "stock": 6
+    },
+    {
+      "id": "5",
+      "titre": "DCS World",
+      "plateforme": "PC",
+      "genre": "Simulation",
+      "developpeur": "Eagle Dynamics",
+      "dateSortie": "2008-10-17",
+      "stock": 4
+    },
+    {
+      "id": "6",
+      "titre": "Assetto Corsa",
+      "plateforme": "PC",
+      "genre": "Course",
+      "developpeur": "Kunos Simulazioni",
+      "dateSortie": "2014-12-19",
+      "stock": 7
+    },
+    {
+      "id": "7",
+      "titre": "Brawlhalla",
+      "plateforme": "Switch",
+      "genre": "Combat",
+      "developpeur": "Blue Mammoth Games",
+      "dateSortie": "2017-10-17",
+      "stock": 12
+    },
+    {
+      "id": "8",
+      "titre": "Rocket League",
+      "plateforme": "Xbox One",
+      "genre": "Sport / Voiture",
+      "developpeur": "Psyonix",
+      "dateSortie": "2015-07-07",
+      "stock": 9
+    },
+    {
+      "id": "9",
+      "titre": "Genshin Impact",
+      "plateforme": "Mobile",
+      "genre": "Action-RPG",
+      "developpeur": "HoYoverse",
+      "dateSortie": "2020-09-28",
+      "stock": 8
+    },
+    {
+      "id": "10",
+      "titre": "Spider-Man",
+      "plateforme": "PS5",
+      "genre": "Action-aventure",
+      "developpeur": "Insomniac Games",
+      "dateSortie": "2018-09-07",
+      "stock": 5
+    },
+    {
+      "id": "11",
+      "titre": "Zelda: Breath of the Wild",
+      "plateforme": "Switch",
+      "genre": "Aventure",
+      "developpeur": "Nintendo",
+      "dateSortie": "2017-03-03",
+      "stock": 11
+    },
+    {
+      "id": "12",
+      "titre": "Forza Horizon 5",
+      "plateforme": "Xbox Series X",
+      "genre": "Course",
+      "developpeur": "Playground Games",
+      "dateSortie": "2021-11-09",
+      "stock": 6
+    },
+    {
+      "id": "13",
+      "titre": "The Last of Us Part II",
+      "plateforme": "PS4",
+      "genre": "Action-aventure",
+      "developpeur": "Naughty Dog",
+      "dateSortie": "2020-06-19",
+      "stock": 4
+    },
+    {
+      "id": "14",
+      "titre": "Hades",
+      "plateforme": "PC",
+      "genre": "Rogue-like",
+      "developpeur": "Supergiant Games",
+      "dateSortie": "2020-09-17",
+      "stock": 7
+    },
+    {
+      "id": "15",
+      "titre": "It Takes Two",
+      "plateforme": "PS5",
+      "genre": "Coopératif",
+      "developpeur": "Hazelight Studios",
+      "dateSortie": "2021-03-26",
+      "stock": 3
     }
   ]
 }

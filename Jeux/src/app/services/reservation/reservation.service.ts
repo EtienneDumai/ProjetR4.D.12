@@ -3,11 +3,13 @@ import { Reservation } from '../../models/reservation.model';
 import { Observable, of, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { JeuVideo } from '../../models/jeu-video.model';
+import { Router, RouterModule, Routes } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
   private readonly http: HttpClient = inject(HttpClient);
+  private readonly router: Router = inject(Router);
   getReservations(): Observable<Reservation[]> {
     return this.http.get<Reservation[]>('http://localhost:3000/Reservation');
   }
@@ -21,7 +23,25 @@ export class ReservationService {
   updateReservation(id: string, data: any): Observable<Reservation> {
     return this.http.put<Reservation>(`http://localhost:3000/Reservation/${id}`, data);
   }
-
+  onDeleteReservation(idReservation: number) {
+    this.http
+      .delete(`http://localhost:3000/Reservation/${idReservation}`)
+      .subscribe({
+        next: () => {
+          console.log("Supprimé avec succès");
+        },
+        error: (err) => {
+          console.error("Erreur lors de la suppression :", err);
+        }
+      });
+    this.router.navigateByUrl('liste-reservations');
+  }
+  editReservation(id: number) {
+    this.router.navigate(['liste-reservation/edit', id]);
+  }
+  addReservation() {
+    this.router.navigateByUrl('ajouter-reservation');
+  }
   getJeuxVideo(): Observable<JeuVideo[]> {
     return this.http.get<JeuVideo[]>('http://localhost:3000/Jeux');
   }

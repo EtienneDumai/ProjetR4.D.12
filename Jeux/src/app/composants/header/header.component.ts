@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.css'],
   imports: [
     CommonModule,
     RouterModule,

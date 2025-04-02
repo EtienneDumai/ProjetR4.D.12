@@ -27,10 +27,10 @@ export class AjouterReservationComponent implements OnInit {
   private readonly router: Router = inject(Router);
   public formReservation: FormGroup = new FormGroup({
     nomClient: new FormControl('', [Validators.required]),
-    emailClient: new FormControl('', [Validators.required]),
-    numTelephoneClient: new FormControl('', [Validators.required]),
-    idJeuReserve: new FormControl('', [Validators.required]),
-    plateforme: new FormControl('', [Validators.required]),
+    emailClient: new FormControl('', [Validators.required, Validators.email]),
+    numTelephoneClient: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
+    idJeuReserve: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
+    plateforme: new FormControl('', [Validators.required, Validators.minLength(3)]),
     dateDeReservation: new FormControl('', [Validators.required]),
     statutReservation: new FormControl('', [Validators.required]),
 

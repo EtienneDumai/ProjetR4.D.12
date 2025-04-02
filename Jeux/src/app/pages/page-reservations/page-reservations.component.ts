@@ -11,38 +11,31 @@ import { MatCardModule } from '@angular/material/card';
 import { Reservation } from '../../models/reservation.model';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
+import { AjouterReservationComponent } from "../ajouter-reservation/ajouter-reservation.component";
 @Component({
   selector: 'app-page-reservations',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatButtonModule, MatListModule, MatGridListModule, MatCardModule],
+  imports: [CommonModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatButtonModule, MatListModule, MatGridListModule, MatTableModule, MatCardModule],
   templateUrl: './page-reservations.component.html',
   styleUrl: './page-reservations.component.css'
 })
 export class PageReservationsComponent implements OnInit {
-  private readonly reservationService : ReservationService = inject(ReservationService);
+  private readonly reservationService: ReservationService = inject(ReservationService);
   private readonly httpClient: HttpClient = inject(HttpClient);
-  private readonly router : Router = inject(Router);
+  private readonly router: Router = inject(Router);
   listReservations!: Reservation[];
+  displayedColumns: string[] = ['id', 'nomClient', 'emailClient', 'numTelephoneClient', 'titreJeuReserve', 'plateforme', 'dateDeReservation', 'statutReservation', 'actions'];
   ngOnInit() {
-    this.reservationService.getReservations().subscribe(reservations => {this.listReservations = reservations});
+    this.reservationService.getReservations().subscribe(reservations => { this.listReservations = reservations });
   }
-  onDeleteReservation(idReservation: number) {
-    this.httpClient
-      .delete(`http://localhost:3000/Reservation/${idReservation}`)
-      .subscribe({
-        next: () => {
-          console.log("Supprimé avec succès");
-        },
-        error: (err) => {
-          console.error("Erreur lors de la suppression :", err);
-        }
-      });
-      this.router.navigateByUrl('liste-reservations');
+  deleteReservation(id: number) {
+    this.reservationService.onDeleteReservation(id);
   }
-  editreservation(id:number) {
-    this.router.navigate(['liste-reservation/edit', id]);
+  addReservation() {
+    this.reservationService.addReservation();
   }
- addReservation() {
-    this.router.navigateByUrl('ajouter-reservation');
+  editReservation(id: number) {
+    this.reservationService.editReservation(id);
   }
 }

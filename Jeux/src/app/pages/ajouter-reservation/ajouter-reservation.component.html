@@ -2,8 +2,20 @@
 <div class="center">
     <form [formGroup]="formReservation" style="width: 600px;" class="form">
         <mat-form-field>
+
             <mat-label for="nomClient">Nom du client</mat-label>
             <input matInput type="text" formControlName="nomClient">
+            @if(formReservation.get('nomClient')?.invalid && formReservation.get('nomClient')?.errors &&
+            (formReservation.get('nomClient')?.dirty || formReservation.get('nomClient')?.touched))
+            {
+                @if(formReservation.get('nomClient')?.hasError('required')){
+                    <span class="text-danger">Ce champs doit être rempli</span>
+                    }
+
+                @if(formReservation.get('nomClient')?.hasError('minlength')){
+                    <span class="text-danger">Ce champs doit être rempli</span>
+                    }
+            }
         </mat-form-field>
         <mat-form-field>
             <mat-label for="emailClient">Email du client</mat-label>
@@ -23,7 +35,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label for="dateDeReservation">Date de la réservation</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="dateDeReservation">
+            <input matInput [matDatepicker]="picker" formControlName="dateDeReservation" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -35,7 +47,7 @@
                 <mat-option value="Annulée">Annulée</mat-option>
             </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="onSubmit()">Ajouter la réservation</button>
+        <button mat-raised-button color="primary"  (click)="onSubmit()">Ajouter la réservation</button>
     </form>
 
 </div>

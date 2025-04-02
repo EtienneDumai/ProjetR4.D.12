@@ -18,3 +18,22 @@
   box-shadow: 0 4px 8px rgba(63, 81, 181, 0.2); /* Ombre douce (facultatif) */
   padding: 20px !important;
 }
+.full-width-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+mat-header-cell, mat-cell {
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: left;
+}
+
+mat-header-row, mat-row {
+  display: flex;
+}
+
+mat-header-cell, mat-cell {
+  flex: 1;
+}
+
