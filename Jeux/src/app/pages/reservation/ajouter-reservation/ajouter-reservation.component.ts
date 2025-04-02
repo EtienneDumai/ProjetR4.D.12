@@ -1,14 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { HeaderComponent } from '../../composants/header/header.component';
-import { HttpService } from '../../services/http.service';
+import { HeaderComponent } from '../../../composants/header/header.component';
+import { HttpService } from '../../../services/http.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { JeuVideo } from '../../models/jeu-video.model';
+import { JeuVideo } from '../../../models/jeu-video.model';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
-import { Reservation } from '../../models/reservation.model';
+import { Reservation } from '../../../models/reservation.model';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule, Routes } from '@angular/router';
 @Component({

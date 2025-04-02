@@ -11,7 +11,7 @@ import { JeuVideo } from '../../models/jeu-video.model';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
-import { AjouterReservationComponent } from "../ajouter-reservation/ajouter-reservation.component";
+import { AjouterReservationComponent } from "../reservation/ajouter-reservation/ajouter-reservation.component";
 import { HttpService } from '../../services/http.service';
 @Component({
   selector: 'app-page-jeux',
@@ -25,5 +25,14 @@ export class PageJeux implements OnInit {
   listJeux!: JeuVideo[];
   ngOnInit() {
     this.httpService.getJeuxVideo().subscribe(jeux => { this.listJeux = jeux });
+  }
+  deleteJeu(id: number) {
+    this.httpService.onDeleteJeu(id);
+  }
+  addJeu() {
+    this.httpService.addJeu();
+  }
+  editJeu(id: number) {
+    this.httpService.editJeu(id);
   }
 }

@@ -62,4 +62,23 @@ export class HttpService {
       })
     );
   }
+  onDeleteJeu(idJeu: number){
+    this.http
+      .delete(`http://localhost:3000/Jeux/${idJeu}`)
+      .subscribe({
+        next: () => {
+          console.log("Supprimé avec succès");
+        },
+        error: (err) => {
+          console.error("Erreur lors de la suppression :", err);
+        }
+      });
+    this.router.navigateByUrl('liste-jeux');
+  }
+  editJeu(id: number) {
+    this.router.navigate(['liste-jeux/edit', id]);
+  }
+  addJeu() {
+    this.router.navigateByUrl('ajouter-jeu');
+  }
 }
