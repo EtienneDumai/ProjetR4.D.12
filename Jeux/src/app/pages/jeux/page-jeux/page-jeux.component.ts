@@ -7,12 +7,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-import { JeuVideo } from '../../models/jeu-video.model';
+import { JeuVideo } from '../../../models/jeu-video.model';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
-import { AjouterReservationComponent } from "../reservation/ajouter-reservation/ajouter-reservation.component";
-import { HttpService } from '../../services/http.service';
+import { AjouterReservationComponent } from "../../reservation/ajouter-reservation/ajouter-reservation.component";
+import { HttpService } from '../../../services/http.service';
 @Component({
   selector: 'app-page-jeux',
   standalone: true,
