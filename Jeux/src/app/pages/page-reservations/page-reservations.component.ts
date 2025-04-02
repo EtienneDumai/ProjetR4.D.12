@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { ReservationService } from '../../services/reservation/reservation.service';
+import { ReservationService } from '../../services/http.service';
 import { MatCardModule } from '@angular/material/card';
 import { Reservation } from '../../models/reservation.model';
 import { HttpClient } from '@angular/common/http';

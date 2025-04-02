@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { Reservation } from '../../models/reservation.model';
+import { Reservation } from '../models/reservation.model';
 import { Observable, of, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { JeuVideo } from '../../models/jeu-video.model';
+import { JeuVideo } from '../models/jeu-video.model';
 import { Router, RouterModule, Routes } from '@angular/router';
 @Injectable({
   providedIn: 'root'
