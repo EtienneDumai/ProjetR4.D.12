@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../composants/header/header.component';
-import { ReservationService } from '../../services/http.service';
+import { HttpService } from '../../services/http.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -23,7 +23,7 @@ import { Router, RouterModule, Routes, ActivatedRoute } from '@angular/router';
   styleUrl: './modifier-reservation.component.css'
 })
 export class ModifierReservationComponent implements OnInit {
-  private readonly reservationService: ReservationService = inject(ReservationService);
+  private readonly httpService: HttpService = inject(HttpService);
   private readonly router: Router = inject(Router);
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
   public formReservation: FormGroup = new FormGroup({
@@ -42,15 +42,15 @@ export class ModifierReservationComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.reservationService.getreservationById(+id).subscribe(reservation => {
+      this.httpService.getreservationById(+id).subscribe(reservation => {
         this.formReservation.patchValue(reservation);
       });
     }
-    this.reservationService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
+    this.httpService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
       this.listeJeux = jeux;
       console.log('Liste des jeux:', this.listeJeux);
     });
-    this.reservationService.getReservations().subscribe((reservations: Reservation[]) => {
+    this.httpService.getReservations().subscribe((reservations: Reservation[]) => {
       this.listeReservations = reservations;
       console.log('Liste des reservations:', this.listeReservations);
     });
@@ -58,7 +58,7 @@ export class ModifierReservationComponent implements OnInit {
   onSubmit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.reservationService.updateReservation(id, this.formReservation.value).subscribe(() => {
+      this.httpService.updateReservation(id, this.formReservation.value).subscribe(() => {
         console.log("Réservation mise à jour !");
         // redirection par exemple :
         this.router.navigateByUrl('');

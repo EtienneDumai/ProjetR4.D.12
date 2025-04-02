@@ -7,7 +7,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class ReservationService {
+export class HttpService {
   private readonly http: HttpClient = inject(HttpClient);
   private readonly router: Router = inject(Router);
   getReservations(): Observable<Reservation[]> {

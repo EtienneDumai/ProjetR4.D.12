@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { AjouterReservationComponent } from "../ajouter-reservation/ajouter-reservation.component";
-import { ReservationService } from '../../services/http.service';
+import { HttpService } from '../../services/http.service';
 @Component({
   selector: 'app-page-jeux',
   standalone: true,
@@ -21,9 +21,9 @@ import { ReservationService } from '../../services/http.service';
   styleUrl: './page-jeux.component.css'
 })
 export class PageJeux implements OnInit {
-  private readonly reservationService: ReservationService = inject(ReservationService);
+  private readonly httpService: HttpService = inject(HttpService);
   listJeux!: JeuVideo[];
   ngOnInit() {
-    this.reservationService.getJeuxVideo().subscribe(jeux => { this.listJeux = jeux });
+    this.httpService.getJeuxVideo().subscribe(jeux => { this.listJeux = jeux });
   }
 }

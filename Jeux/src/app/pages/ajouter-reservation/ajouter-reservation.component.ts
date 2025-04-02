@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../composants/header/header.component';
-import { ReservationService } from '../../services/http.service';
+import { HttpService } from '../../services/http.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -23,7 +23,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
   styleUrl: './ajouter-reservation.component.css'
 })
 export class AjouterReservationComponent implements OnInit {
-  private readonly reservationService: ReservationService = inject(ReservationService);
+  private readonly httpService: HttpService = inject(HttpService);
   private readonly router: Router = inject(Router);
   public formReservation: FormGroup = new FormGroup({
     nomClient: new FormControl('', [Validators.required]),
@@ -40,11 +40,11 @@ export class AjouterReservationComponent implements OnInit {
   listeReservations: Reservation[] = [];
   maxIdReservation: number = 0;
   ngOnInit(): void {
-    this.reservationService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
+    this.httpService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
       this.listeJeux = jeux;
       console.log('Liste des jeux:', this.listeJeux);
     });
-    this.reservationService.getReservations().subscribe((reservations: Reservation[]) => {
+    this.httpService.getReservations().subscribe((reservations: Reservation[]) => {
       this.listeReservations = reservations;
       console.log('Liste des reservations:', this.listeReservations);
     });
@@ -77,7 +77,7 @@ export class AjouterReservationComponent implements OnInit {
     };
     console.log('Nouvelle reservation:', newReservation);
 
-    this.reservationService.addNewReservation(newReservation).subscribe( {
+    this.httpService.addNewReservation(newReservation).subscribe( {
       next: (reservation) => { 
         console.log('Reservation ajoutée:', reservation);
         this.router.navigateByUrl('');
