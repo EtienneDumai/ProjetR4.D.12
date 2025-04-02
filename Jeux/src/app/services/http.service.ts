@@ -13,7 +13,7 @@ export class HttpService {
   getReservations(): Observable<Reservation[]> {
     return this.http.get<Reservation[]>('http://localhost:3000/Reservation');
   }
-  getreservationById(id: number): Observable<Reservation> {
+  getreservationById(id: string): Observable<Reservation> {
     return this.http.get<Reservation>(`http://localhost:3000/Reservation/${id}`);
   }
   addNewReservation(nouvReservation: Reservation): Observable<Reservation> {
@@ -23,7 +23,7 @@ export class HttpService {
   updateReservation(id: string, data: any): Observable<Reservation> {
     return this.http.put<Reservation>(`http://localhost:3000/Reservation/${id}`, data);
   }
-  onDeleteReservation(idReservation: number) {
+  onDeleteReservation(idReservation: string) {
     this.http
       .delete(`http://localhost:3000/Reservation/${idReservation}`)
       .subscribe({
@@ -36,7 +36,7 @@ export class HttpService {
       });
     this.router.navigateByUrl('liste-reservations');
   }
-  editReservation(id: number) {
+  editReservation(id: string) {
     this.router.navigate(['liste-reservation/edit', id]);
   }
   addReservation() {
@@ -45,24 +45,24 @@ export class HttpService {
   getJeuxVideo(): Observable<JeuVideo[]> {
     return this.http.get<JeuVideo[]>('http://localhost:3000/Jeux');
   }
-  getJeuVideoById(id: number): Observable<JeuVideo> {
+  getJeuVideoById(id: string): Observable<JeuVideo> {
     return this.http.get<JeuVideo>(`http://localhost:3000/Jeux/${id}`);
   }
-  getJeuVideoTitreById(id: number): Observable<string> {
+  getJeuVideoTitreById(id: string): Observable<string> {
     return this.getJeuVideoById(id).pipe(
       switchMap((jeu) => {
         return of(jeu.titre);
       })
     );
   }
-  getJeuVideoPlateformeById(id: number): Observable<string> {
+  getJeuVideoPlateformeById(id: string): Observable<string> {
     return this.getJeuVideoById(id).pipe(
       switchMap((jeu) => {
         return of(jeu.plateforme);
       })
     );
   }
-  onDeleteJeu(idJeu: number){
+  onDeleteJeu(idJeu: string){
     this.http
       .delete(`http://localhost:3000/Jeux/${idJeu}`)
       .subscribe({
@@ -75,7 +75,7 @@ export class HttpService {
       });
     this.router.navigateByUrl('liste-jeux');
   }
-  editJeu(id: number) {
+  editJeu(id: string) {
     this.router.navigate(['liste-jeux/edit', id]);
   }
   addJeu() {

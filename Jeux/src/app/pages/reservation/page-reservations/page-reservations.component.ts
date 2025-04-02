@@ -28,13 +28,13 @@ export class PageReservationsComponent implements OnInit {
   ngOnInit() {
     this.httpService.getReservations().subscribe(reservations => { this.listReservations = reservations });
   }
-  deleteReservation(id: number) {
+  deleteReservation(id: string) {
     this.httpService.onDeleteReservation(id);
   }
   addReservation() {
     this.httpService.addReservation();
   }
-  editReservation(id: number) {
+  editReservation(id: string) {
     this.httpService.editReservation(id);
   }
 }

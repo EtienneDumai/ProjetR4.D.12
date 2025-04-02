@@ -42,7 +42,7 @@ export class ModifierReservationComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.httpService.getreservationById(+id).subscribe(reservation => {
+      this.httpService.getreservationById(id).subscribe(reservation => {
         this.formReservation.patchValue(reservation);
       });
     }

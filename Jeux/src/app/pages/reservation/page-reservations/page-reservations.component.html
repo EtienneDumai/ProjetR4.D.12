@@ -1,7 +1,7 @@
 @if(listReservations){
 <div>
     <mat-grid-list cols="2" rowHeight="2:1">
-        @for(reservation of listReservations; track $index){
+        @for(reservation of listReservations; track reservation.id){
         <mat-grid-tile>
             <mat-card class="center custom-border-card">
                 <mat-card-title>

@@ -1,14 +1,14 @@
 export class Reservation {
-    id: number;
+    id: string;
     nomClient: string;
     emailClient: string;
-    numTelephoneClient: number;
-    idJeuReserve: number;
+    numTelephoneClient: string;
+    idJeuReserve: string;
     titreJeuReserve: string;
     plateforme: string;
     dateDeReservation: Date;
     statutReservation: string;
-    constructor(leIdReservation:number, leNomClient: string, leEmailClient: string, leNumTelephoneClient: number, leIdJeuReserve:number, leTitreJeuReserve: string, laPlateforme: string, laDateDeReservation: Date, leStatutReservation: string) {
+    constructor(leIdReservation:string, leNomClient: string, leEmailClient: string, leNumTelephoneClient: string, leIdJeuReserve:string, leTitreJeuReserve: string, laPlateforme: string, laDateDeReservation: Date, leStatutReservation: string) {
         this.id = leIdReservation;
         this.nomClient = leNomClient;
         this.emailClient = leEmailClient;
