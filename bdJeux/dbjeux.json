@@ -1,15 +1,14 @@
 {
   "Reservation": [
     {
-      "id": "1",
-      "nomClient": "Etienne",
+      "nomClient": "kjhigufydtsyfguhijkolmkh",
       "emailClient": "etienne.dumai@gmail.com",
       "numTelephoneClient": "0782501004",
       "idJeuReserve": "2",
-      "titreJeuReserve": "Dora sauve la princesse des neiges",
       "plateforme": "Nintendo DS",
       "dateDeReservation": "2025-12-03T23:00:00.000Z",
-      "statutReservation": "Confirmée"
+      "statutReservation": "Confirmée",
+      "id": "1"
     }
   ],
   "Jeux": [

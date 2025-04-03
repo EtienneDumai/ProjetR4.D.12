@@ -1,32 +1,33 @@
 @if(listJeux){
         <div>
             <mat-grid-list cols="2" rowHeight="2:1">
-                @for(reservation of listReservations; track reservation.id){
+                @for(jeu of listJeux; track jeu.id){
                 <mat-grid-tile>
                     <mat-card class="center custom-border-card">
                         <mat-card-title>
-                            n° {{reservation.id}}
+                            n° {{jeu.id}}
                         </mat-card-title>
                         <mat-card-content>
-                            <p>Nom du client : {{reservation.nomClient}}</p>
-                            <p>Date de réservation : {{reservation.dateDeReservation | date:'dd/MM/yyyy'}}</p>
-                            <p>Statut de la réservation : {{reservation.statutReservation}}</p>
-                            <p>Jeu réservé : {{reservation.titreJeuReserve}}</p>
-                            <p>Plateforme : {{reservation.plateforme}}</p>
+                            <p>Titre du jeu : {{jeu.titre}}</p>
+                            <p>Plateforme : {{jeu.plateforme }}</p>
+                            <p> Genre : {{jeu.genre}}</p>
+                            <p>Developpeur : {{jeu.developpeur}}</p>
+                            <p>Date de sortie : {{jeu.dateSortie | date:'dd/MM/yyyy'}}</p>
+                            <p> Stock : {{jeu.stock}}</p>   
                         </mat-card-content>
                         <br>
                         <mat-card-footer>
                             <button mat-raised-button color="primary"
-                                (click)="editReservation(reservation.id)">Modifier</button>
+                                (click)="editJeu(jeu.id)">Modifier</button>
                             <button mat-raised-button color="warn"
-                                (click)="deleteReservation(reservation.id)">Supprimer</button>
+                                (click)="deleteJeu(jeu.id)">Supprimer</button>
                         </mat-card-footer>
                     </mat-card>
                 </mat-grid-tile>
                 }
             </mat-grid-list>
             <div class="center">
-                <button mat-raised-button color="primary" (click)="addReservation()">Ajouter une réservation</button>
+                <button mat-raised-button color="primary" (click)="addJeu()">Ajouter une réservation</button>
             </div>
         </div>
         }

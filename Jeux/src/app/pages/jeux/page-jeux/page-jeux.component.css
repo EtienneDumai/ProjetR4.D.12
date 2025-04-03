@@ -1,0 +1,44 @@
+:root {
+  --border-custom-color: #700081;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* espace entre les colonnes */
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-border-card {
+  border: 2px solid #6d00a0; /* Couleur personnalisable */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(63, 81, 181, 0.2); /* Ombre douce (facultatif) */
+  padding: 20px !important;
+  width: 400px !important;
+  align-content: center! important;
+  justify-content: center !important;
+}
+.full-width-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+mat-header-cell,
+mat-cell {
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: left;
+}
+
+mat-header-row,
+mat-row {
+  display: flex;
+}
+
+mat-header-cell,
+mat-cell {
+  flex: 1;
+}
