@@ -8,10 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { JeuVideo } from '../../../models/jeu-video.model';
-import { HttpClient } from '@angular/common/http';
-import { Router, RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
-import { AjouterReservationComponent } from "../../reservation/ajouter-reservation/ajouter-reservation.component";
 import { HttpService } from '../../../services/http.service';
 @Component({
   selector: 'app-page-jeux',
@@ -20,19 +17,19 @@ import { HttpService } from '../../../services/http.service';
   templateUrl: './page-jeux.component.html',
   styleUrl: './page-jeux.component.css'
 })
-export class PageJeux implements OnInit {
+export class PageJeuxComponent implements OnInit {
   private readonly httpService: HttpService = inject(HttpService);
   listJeux!: JeuVideo[];
   ngOnInit() {
     this.httpService.getJeuxVideo().subscribe(jeux => { this.listJeux = jeux });
   }
-  deleteJeu(id: number) {
+  deleteJeu(id: string) {
     this.httpService.onDeleteJeu(id);
   }
   addJeu() {
     this.httpService.addJeu();
   }
-  editJeu(id: number) {
+  editJeu(id: string) {
     this.httpService.editJeu(id);
   }
 }

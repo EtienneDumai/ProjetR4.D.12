@@ -1,12 +1,13 @@
 export class JeuVideo {
-    id:number;
+    id:string;
     titre: string;
     plateforme: string;
     genre: string;
     developpeur: string;
     dateSortie: Date;
-    stock: number;
-    constructor(leId: number, leTitre: string, laPlateforme: string, leGenre: string, leDeveloppeur: string, laDateSortie: Date, leStock: number) {
+    stock: string;
+    imageUrl: string;
+    constructor(leId: string, leTitre: string, laPlateforme: string, leGenre: string, leDeveloppeur: string, laDateSortie: Date, leStock: string, lImageUrl: string) {
         this.id = leId;
         this.titre = leTitre;
         this.plateforme = laPlateforme;
@@ -14,6 +15,6 @@ export class JeuVideo {
         this.developpeur = leDeveloppeur;
         this.dateSortie = laDateSortie;
         this.stock = leStock;
-        
+        this.imageUrl = lImageUrl;
     }
 }

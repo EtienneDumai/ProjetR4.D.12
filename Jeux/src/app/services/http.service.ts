@@ -64,7 +64,7 @@ export class HttpService {
   }
   onDeleteJeu(idJeu: string){
     this.http
-      .delete(`http://localhost:3000/Jeux/${idJeu}`)
+      .delete(`http://localhost:3000/Jeux/`+ idJeu)
       .subscribe({
         next: () => {
           console.log("Supprimé avec succès");
