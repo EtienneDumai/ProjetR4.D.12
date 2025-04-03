@@ -1,1 +1,106 @@
-<p>ajouter-jeux works!</p>
+<p>ajouter-reservation works!</p>
+<div class="center">
+    <form [formGroup]="formJeu" style="width: 600px;" class="form">
+        <mat-form-field>
+
+            <mat-label for="titre">Titre du jeu</mat-label>
+            <input matInput type="text" formControlName="titre">
+            @if(formJeu.get('titre')?.invalid && formJeu.get('titre')?.errors &&
+            (formJeu.get('titre')?.dirty || formJeu.get('titre')?.touched))
+            {
+            @if(formJeu.get('titre')?.hasError('required')){
+            <span class="text-danger">Ce champs doit être rempli</span>
+            }
+
+            @if(formJeu.get('titre')?.hasError('minlength')){
+            <span class="text-danger">Ce champs doit au moins contenir 3 caractère</span>
+            }
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="plateforme">Plateforme du jeu</mat-label>
+            <mat-select formControlName="plateforme">
+                @for(plateforme of listePlateforme; track $index){
+                <mat-option [value]="plateforme">{{plateforme}}</mat-option>
+                }
+            </mat-select>
+            @if(formJeu.get('plateforme')?.invalid && formJeu.get('plateforme')?.errors &&
+            (formJeu.get('plateforme')?.dirty || formJeu.get('plateforme')?.touched))
+            {
+            @if(formJeu.get('plateforme')?.hasError('required')){
+            <span class="text-danger">Ce champs doit être rempli</span>
+            }
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="genre">Genre</mat-label>
+            <mat-select formControlName="genre">
+                @for(genre of listeGenre; track $index){
+                <mat-option [value]="genre">{{genre}}</mat-option>
+                }
+            </mat-select>
+            @if(formJeu.get('genre')?.invalid && formJeu.get('genre')?.errors &&
+            (formJeu.get('genre')?.dirty || formJeu.get('genre')?.touched))
+            {
+                @if(formJeu.get('genre')?.hasError('required')){
+                    <span class="text-danger">Ce champs doit être rempli</span>
+                }
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="developpeur">Developpeur</mat-label>
+            <input matInput formControlName="developpeur">
+            @if(formJeu.get('developpeur')?.invalid && formJeu.get('developpeur')?.errors &&
+            (formJeu.get('developpeur')?.dirty || formJeu.get('developpeur')?.touched))
+            {
+            @if(formJeu.get('developpeur')?.hasError('required')){
+            <span class="text-danger">Ce champs doit être rempli</span>
+            }
+
+            @if(formJeu.get('developpeur')?.hasError('minlength')){
+            <span class="text-danger">Ce champs doit au moins contenir 3 caractère</span>
+            }
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="dateDeSortie">Date de sortie</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateDeSortie" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            @if(formJeu.get('dateDeSortie')?.invalid && formJeu.get('dateDeSortie')?.errors &&
+            (formJeu.get('dateDeSortie')?.dirty || formJeu.get('dateDeSortie')?.touched))
+            {
+                @if(formJeu.get('dateDeSortie')?.hasError('required')){
+                    <span class="text-danger">Ce champs doit être rempli</span>
+                }
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="stock">Stock</mat-label>
+            <input matInput formControlName="stock">
+            @if(formJeu.get('stock')?.invalid && formJeu.get('stock')?.errors &&
+            (formJeu.get('stock')?.dirty || formJeu.get('stock')?.touched))
+            {
+                @if(formJeu.get('stock')?.hasError('required')){
+                    <span class="text-danger">Ce champs doit être rempli</span>
+                }
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="imageUrl">Url de l'image</mat-label>
+            <input matInput formControlName="imageUrl">
+            @if(formJeu.get('imageUrl')?.invalid && formJeu.get('imageUrl')?.errors &&
+            (formJeu.get('imageUrl')?.dirty || formJeu.get('imageUrl')?.touched))
+            {
+                @if(formJeu.get('imageUrl')?.hasError('required')){
+                    <span class="text-danger">Ce champs doit être rempli</span>
+                }
+                @if(formJeu.get('imageUrl')?.hasError('pattern')){
+                    <span class="text-danger">Le format ne correspoind pas</span>
+                }
+            }
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Ajouter la réservation</button>
+    </form>
+
+</div>
