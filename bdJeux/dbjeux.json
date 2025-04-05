@@ -1,45 +1,59 @@
 {
   "Reservation": [
     {
-      "id": "1",
-      "nomClient": "sdfsdfs",
-      "emailClient": "ssdfsdfsf",
-      "numTelephoneClient": "sdfsfsdf",
-      "idJeuReserve": "3",
-      "titreJeuReserve": "Super Mario Pyrénnées Atlantiques",
+      "nomClient": "Dupont",
+      "emailClient": "dupont@dupont.fr",
+      "numTelephoneClient": "0606060606",
+      "idJeuReserve": "6",
       "plateforme": "Nintendo 64",
-      "dateDeReservation": "2025-04-22T22:00:00.000Z",
+      "dateDeReservation": "2023-10-01",
+      "statutReservation": "Confirmée",
+      "titreJeuReserve": "Assetto Corsa",
+      "id": "1"
+    },
+    {
+      "nomClient": "Etienne",
+      "emailClient": "etienne.dumai@gmail.com",
+      "numTelephoneClient": "0782501004",
+      "idJeuReserve": "7",
+      "plateforme": "PS4",
+      "dateDeReservation": "2025-04-07T22:00:00.000Z",
+      "statutReservation": "Confirmée",
+      "titreJeuReserve": "Brawlhalla",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "nomClient": "Yann",
+      "emailClient": "ycarpentier@iutbayonne.univ-pau.fr",
+      "numTelephoneClient": "0606060606",
+      "idJeuReserve": "5",
+      "titreJeuReserve": "DCS World",
+      "plateforme": "PC",
+      "dateDeReservation": "2025-03-10T23:00:00.000Z",
       "statutReservation": "Confirmée"
     }
   ],
   "Jeux": [
     {
-      "titre": "sdfsdf",
-      "plateforme": "PS5",
-      "genre": "Aventure",
-      "developpeur": "sdfsdfs",
-      "dateDeSortie": "2025-04-13T22:00:00.000Z",
-      "stock": 24894,
-      "imageUrl": "qsdqsd",
-      "id": "2"
-    },
-    {
       "id": "3",
       "titre": "Super Mario Pyrénnées Atlantiques",
-      "plateforme": "Nintendo 64",
+      "plateforme": "NINTENDO DS",
       "genre": "Plateforme",
       "developpeur": "Nintendo",
       "dateSortie": "1996-06-23",
-      "stock": 5
+      "stock": 5,
+      "imageUrl": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_7/SI_N64_SuperMario64.jpg"
     },
     {
       "id": "4",
       "titre": "Red Dead Redemption 2",
       "plateforme": "PS4",
-      "genre": "Action-aventure",
+      "genre": "Aventure",
       "developpeur": "Rockstar Games",
       "dateSortie": "2018-10-26",
-      "stock": 6
+      "stock": 6,
+      "imageUrl": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08519_00/12/i_3da1cf7c41dc7652f9b639e1680d96436773658668c7dc3930c441291095713b/i/icon0.png"
     },
     {
       "id": "5",
@@ -48,7 +62,8 @@
       "genre": "Simulation",
       "developpeur": "Eagle Dynamics",
       "dateSortie": "2008-10-17",
-      "stock": 4
+      "stock": 4,
+      "imageUrl": "https://www.digitalcombatsimulator.com/upload/iblock/e8a/0hwm640qpoo3qzz7b03s24ol8w0trq3k/dcs_home%20page_cover.png"
     },
     {
       "id": "6",
@@ -57,64 +72,48 @@
       "genre": "Course",
       "developpeur": "Kunos Simulazioni",
       "dateSortie": "2014-12-19",
-      "stock": 7
+      "stock": 7,
+      "imageUrl": "https://image.api.playstation.com/cdn/EP4040/CUSA01797_00/NMcAucyANMnYMNkz6V5vk9f5YXty2mCz.png"
     },
     {
       "id": "7",
       "titre": "Brawlhalla",
-      "plateforme": "Switch",
-      "genre": "Combat",
+      "plateforme": "SWITCH",
+      "genre": "Action",
       "developpeur": "Blue Mammoth Games",
       "dateSortie": "2017-10-17",
-      "stock": 12
+      "stock": 12,
+      "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/3020/4c8d2599033aaa3e03954719a343f0edf8636c1941627baf.png?w=440"
     },
     {
       "id": "8",
       "titre": "Rocket League",
-      "plateforme": "Xbox One",
-      "genre": "Sport / Voiture",
+      "plateforme": "XBOX ONE",
+      "genre": "Action",
       "developpeur": "Psyonix",
       "dateSortie": "2015-07-07",
-      "stock": 9
+      "stock": 9,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Rocket_League_coverart.jpg"
     },
     {
       "id": "9",
       "titre": "Genshin Impact",
-      "plateforme": "Mobile",
-      "genre": "Action-RPG",
+      "plateforme": "PC",
+      "genre": "Action",
       "developpeur": "HoYoverse",
       "dateSortie": "2020-09-28",
-      "stock": 8
+      "stock": 8,
+      "imageUrl": "https://m.media-amazon.com/images/I/81YqH88N8vL._AC_UF1000,1000_QL80_.jpg"
     },
     {
       "id": "10",
-      "titre": "Res",
-      "plateforme": "PS5",
-      "genre": "RPG",
-      "developpeur": "qsdqsdqsd",
-      "dateSortie": "2025-04-06T22:00:00.000Z",
-      "stock": "qsd",
-      "imageUrl": "qsdqdsq"
-    },
-    {
-      "id": "11",
-      "titre": "fgbcxfgdwfg",
-      "plateforme": "PS4",
+      "titre": "Dora sauve la princesse des neiges",
+      "plateforme": "NINTENDO DS",
       "genre": "Aventure",
-      "developpeur": "sdfsdfsd",
-      "dateSortie": "2025-04-15T22:00:00.000Z",
-      "stock": 65,
-      "imageUrl": "sfdsf"
-    },
-    {
-      "id": "12",
-      "titre": "qsdqsd",
-      "plateforme": "PS4",
-      "genre": "Aventure",
-      "developpeur": "qsdqsdq",
-      "dateSortie": "2025-04-21T22:00:00.000Z",
-      "stock": 54,
-      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
+      "developpeur": "Nickelodeon",
+      "dateSortie": "2008-11-14",
+      "stock": 3,
+      "imageUrl": "https://m.media-amazon.com/images/I/51zcPSui7vL._AC_UF1000,1000_QL80_.jpg"
     }
   ]
 }

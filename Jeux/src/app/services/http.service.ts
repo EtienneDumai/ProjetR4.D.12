@@ -21,7 +21,15 @@ export class HttpService {
     return this.http.post<Reservation>('http://localhost:3000/Reservation', nouvReservation);
   }
   updateReservation(id: string, data: any): Observable<Reservation> {
-    return this.http.put<Reservation>(`http://localhost:3000/Reservation/${id}`, data);
+    let idJeuReserve = data.idJeuReserve;
+    console.log(data);
+    return this.getJeuVideoTitreById(idJeuReserve).pipe(
+      switchMap((titre: string) => {
+        console.log('Titre du jeu réservé:', titre);
+        data.titreJeuReserve = titre;
+        return this.http.put<Reservation>(`http://localhost:3000/Reservation/${id}`, data);
+      })
+    );
   }
   onDeleteReservation(idReservation: string): Observable<boolean> {
     // On effectue une requête HTTP DELETE à l'URL spécifiée pour supprimer le jeu correspondant.

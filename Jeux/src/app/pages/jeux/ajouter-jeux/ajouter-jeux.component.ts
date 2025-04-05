@@ -46,7 +46,7 @@ export class AjouterJeuxComponent {
     });
     
     this.listePlateforme = ['PC', 'PS4', 'PS5', 'XBOX ONE', 'XBOX SERIES X', 'SWITCH', 'NINTENDO DS'];
-    this.listeGenre = ['Action', 'Aventure', 'RPG', 'FPS', 'Simulation', 'Stratégie', 'Sport', 'Course'];
+    this.listeGenre = ['Action', 'Aventure', 'RPG', 'FPS', 'Simulation', 'Stratégie', 'Sport', 'Course', "Plateforme"];
   }
   onSubmit() {
     console.log('J\'entre dans le onSubmit()');

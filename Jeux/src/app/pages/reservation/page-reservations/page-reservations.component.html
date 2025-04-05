@@ -1,7 +1,18 @@
-@if(listReservations){
+@if(filtrerReservations){
 <div>
+    <mat-form-field appearance="fill">
+        <mat-label>Rechercher par nom</mat-label>
+        <input matInput type="text" [(ngModel)]="searchText" (input)="onSearchChange()">
+        </mat-form-field>
+        <mat-radio-group [(ngModel)]="selectedStatut" (change)="onSearchChange()">
+            <mat-radio-button value="">Toutes les plateformes</mat-radio-button>
+            @for(statut of listeStatut; track $index){
+            <mat-radio-button [value]="statut">{{statut}}</mat-radio-button>
+            }
+        </mat-radio-group>
+            <!-- Ajoutez d'autres boutons radio selon vos plateformes -->
     <mat-grid-list cols="2" rowHeight="2:1">
-        @for(reservation of listReservations; track reservation.id){
+        @for(reservation of filtrerReservations; track reservation.id){
         <mat-grid-tile>
             <mat-card class="center custom-border-card">
                 <mat-card-title>

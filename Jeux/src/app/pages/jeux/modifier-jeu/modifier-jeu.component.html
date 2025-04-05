@@ -95,11 +95,11 @@
                     <span class="text-danger">Ce champs doit être rempli</span>
                 }
                 @if(formJeu.get('imageUrl')?.hasError('pattern')){
-                    <span class="text-danger">Le format ne correspoind pas</span>
+                    <span class="text-danger">Le format ne correspond pas</span>
                 }
             }
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="onSubmit()">Ajouter le jeu</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Modifier le jeu</button>
     </form>
 
 </div>
