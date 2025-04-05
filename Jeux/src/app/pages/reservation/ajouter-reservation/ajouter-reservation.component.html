@@ -1,4 +1,3 @@
-<p>ajouter-reservation works!</p>
 <div class="center">
     <form [formGroup]="formReservation" style="width: 600px;" class="form">
         <mat-form-field>
@@ -11,7 +10,6 @@
                 @if(formReservation.get('nomClient')?.hasError('required')){
                     <span class="text-danger">Ce champs doit être rempli</span>
                     }
-
                 @if(formReservation.get('nomClient')?.hasError('minlength')){
                     <span class="text-danger">Ce champs doit au moins contenir 3 caractère</span>
                     }

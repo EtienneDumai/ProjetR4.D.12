@@ -91,4 +91,7 @@ export class HttpService {
     console.log('Je vais ajouter le jeu dans le tableau de jeux');
     return this.http.post<JeuVideo>('http://localhost:3000/Jeux', nouveauJeu);
   }
+  updateJeu(id: string, data: any): Observable<JeuVideo> {
+    return this.http.put<JeuVideo>(`http://localhost:3000/Jeux/${id}`, data);
+  }
 }

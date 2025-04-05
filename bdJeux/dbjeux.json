@@ -11,13 +11,14 @@
       "stock": 10
     },
     {
-      "id": "2",
-      "titre": "Dora sauve la princesse des neiges",
-      "plateforme": "Nintendo DS",
+      "titre": "qsdqsdq",
+      "plateforme": "XBOX ONE",
       "genre": "Aventure",
-      "developpeur": "2K Play",
-      "dateSortie": "2009-01-30",
-      "stock": 25
+      "developpeur": "qsdqsd",
+      "dateDeSortie": "2025-04-07T22:00:00.000Z",
+      "stock": "qsdqds",
+      "imageUrl": "qsdqsdqd",
+      "id": "2"
     },
     {
       "id": "3",
@@ -81,6 +82,16 @@
       "developpeur": "HoYoverse",
       "dateSortie": "2020-09-28",
       "stock": 8
+    },
+    {
+      "id": "10",
+      "titre": "Res",
+      "plateforme": "PS5",
+      "genre": "RPG",
+      "developpeur": "qsdqsdqsd",
+      "dateSortie": "2025-04-06T22:00:00.000Z",
+      "stock": "qsd",
+      "imageUrl": "qsdqdsq"
     }
   ]
 }
