@@ -55,8 +55,7 @@ export class ModifierJeuComponent {
     if (id) {
       this.httpService.updateJeu(id, this.formJeu.value).subscribe(() => {
         console.log("Réservation mise à jour !");
-        // redirection par exemple :
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('page-jeux');
       });
     }
   }

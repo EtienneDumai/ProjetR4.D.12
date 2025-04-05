@@ -76,7 +76,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label for="stock">Stock</mat-label>
-            <input matInput formControlName="stock">
+            <input matInput formControlName="stock" type="number">
             @if(formJeu.get('stock')?.invalid && formJeu.get('stock')?.errors &&
             (formJeu.get('stock')?.dirty || formJeu.get('stock')?.touched))
             {

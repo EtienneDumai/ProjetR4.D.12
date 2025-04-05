@@ -38,14 +38,13 @@ export class AjouterJeuxComponent {
     stock: new FormControl('', [Validators.required]),
     imageUrl: new FormControl('', [Validators.required, Validators.pattern(this.thumbRegex)]),
   });
+  
   ngOnInit(): void {
     this.httpService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
       this.listeJeux = jeux;
       console.log('Liste des jeux:', this.listeJeux);
     });
-    this.thumbRegex = new RegExp(
-      'https?:\\/\\/.*\\.(?:png|jpg|jpeg|gif|svg|webp)$'
-    );
+    
     this.listePlateforme = ['PC', 'PS4', 'PS5', 'XBOX ONE', 'XBOX SERIES X', 'SWITCH', 'NINTENDO DS'];
     this.listeGenre = ['Action', 'Aventure', 'RPG', 'FPS', 'Simulation', 'Stratégie', 'Sport', 'Course'];
   }

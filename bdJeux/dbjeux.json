@@ -1,23 +1,26 @@
 {
-  "Reservation": [],
-  "Jeux": [
+  "Reservation": [
     {
       "id": "1",
-      "titre": "War Thunder",
-      "plateforme": "PC",
-      "genre": "Simulation",
-      "developpeur": "Gaijin Entertainment",
-      "dateSortie": "2012-12-21",
-      "stock": 10
-    },
+      "nomClient": "sdfsdfs",
+      "emailClient": "ssdfsdfsf",
+      "numTelephoneClient": "sdfsfsdf",
+      "idJeuReserve": "3",
+      "titreJeuReserve": "Super Mario Pyrénnées Atlantiques",
+      "plateforme": "Nintendo 64",
+      "dateDeReservation": "2025-04-22T22:00:00.000Z",
+      "statutReservation": "Confirmée"
+    }
+  ],
+  "Jeux": [
     {
-      "titre": "qsdqsdq",
-      "plateforme": "XBOX ONE",
+      "titre": "sdfsdf",
+      "plateforme": "PS5",
       "genre": "Aventure",
-      "developpeur": "qsdqsd",
-      "dateDeSortie": "2025-04-07T22:00:00.000Z",
-      "stock": "qsdqds",
-      "imageUrl": "qsdqsdqd",
+      "developpeur": "sdfsdfs",
+      "dateDeSortie": "2025-04-13T22:00:00.000Z",
+      "stock": 24894,
+      "imageUrl": "qsdqsd",
       "id": "2"
     },
     {
@@ -92,6 +95,26 @@
       "dateSortie": "2025-04-06T22:00:00.000Z",
       "stock": "qsd",
       "imageUrl": "qsdqdsq"
+    },
+    {
+      "id": "11",
+      "titre": "fgbcxfgdwfg",
+      "plateforme": "PS4",
+      "genre": "Aventure",
+      "developpeur": "sdfsdfsd",
+      "dateSortie": "2025-04-15T22:00:00.000Z",
+      "stock": 65,
+      "imageUrl": "sfdsf"
+    },
+    {
+      "id": "12",
+      "titre": "qsdqsd",
+      "plateforme": "PS4",
+      "genre": "Aventure",
+      "developpeur": "qsdqsdq",
+      "dateSortie": "2025-04-21T22:00:00.000Z",
+      "stock": 54,
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
     }
   ]
 }
