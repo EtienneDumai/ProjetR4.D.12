@@ -62,9 +62,9 @@ export class HttpService {
       })
     );
   }
-  onDeleteJeu(idJeu: string){
+  onDeleteJeu(idJeu: string) {
     this.http
-      .delete(`http://localhost:3000/Jeux/`+ idJeu)
+      .delete(`http://localhost:3000/Jeux/${idJeu}`)
       .subscribe({
         next: () => {
           console.log("Supprimé avec succès");
@@ -73,12 +73,16 @@ export class HttpService {
           console.error("Erreur lors de la suppression :", err);
         }
       });
-    this.router.navigateByUrl('liste-jeux');
+    this.router.navigateByUrl('page-jeux');
   }
   editJeu(id: string) {
-    this.router.navigate(['liste-jeux/edit', id]);
+    this.router.navigate(['page-jeux/edit', id]);
   }
   addJeu() {
-    this.router.navigateByUrl('ajouter-jeu');
+    this.router.navigateByUrl('ajouter-jeux');
+  }
+  addNewJeu(nouveauJeu: JeuVideo): Observable<JeuVideo> {
+    console.log('Je vais ajouter le jeu dans le tableau de jeux');
+    return this.http.post<JeuVideo>('http://localhost:3000/Jeux', nouveauJeu);
   }
 }

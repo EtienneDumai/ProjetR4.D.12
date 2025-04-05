@@ -137,15 +137,6 @@
       "developpeur": "Supergiant Games",
       "dateSortie": "2020-09-17",
       "stock": 7
-    },
-    {
-      "id": "15",
-      "titre": "It Takes Two",
-      "plateforme": "PS5",
-      "genre": "Coopératif",
-      "developpeur": "Hazelight Studios",
-      "dateSortie": "2021-03-26",
-      "stock": 3
     }
   ]
 }

@@ -15,9 +15,9 @@ import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/cor
   standalone: true,
   imports: [ReactiveFormsModule, MatFormField, MatSelectModule, MatInputModule, MatDatepickerModule, MatButtonModule],
   providers: [
-      provideNativeDateAdapter(),
-      { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }
-    ],
+    provideNativeDateAdapter(),
+    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }
+  ],
   templateUrl: './ajouter-jeux.component.html',
   styleUrl: './ajouter-jeux.component.css'
 })
@@ -28,6 +28,7 @@ export class AjouterJeuxComponent {
   thumbRegex!: RegExp;
   private readonly httpService: HttpService = inject(HttpService);
   private readonly router: Router = inject(Router);
+  maxIdJeux: number = 0;
   public formJeu: FormGroup = new FormGroup({
     titre: new FormControl('', [Validators.required, Validators.minLength(3)]),
     plateforme: new FormControl('', [Validators.required, Validators.email]),
@@ -35,7 +36,7 @@ export class AjouterJeuxComponent {
     developpeur: new FormControl('', [Validators.required]),
     dateDeSortie: new FormControl('', [Validators.required]),
     stock: new FormControl('', [Validators.required]),
-    imageUrl: new FormControl('', [Validators.required,  Validators.pattern(this.thumbRegex)]),
+    imageUrl: new FormControl('', [Validators.required, Validators.pattern(this.thumbRegex)]),
   });
   ngOnInit(): void {
     this.httpService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
@@ -45,10 +46,38 @@ export class AjouterJeuxComponent {
     this.thumbRegex = new RegExp(
       'https?:\\/\\/.*\\.(?:png|jpg|jpeg|gif|svg|webp)$'
     );
-  this.listePlateforme = ['PC', 'PS4', 'PS5', 'XBOX ONE', 'XBOX SERIES X', 'SWITCH', 'NINTENDO DS'];
-  this.listeGenre = ['Action', 'Aventure', 'RPG', 'FPS', 'Simulation', 'Stratégie', 'Sport', 'Course'];
+    this.listePlateforme = ['PC', 'PS4', 'PS5', 'XBOX ONE', 'XBOX SERIES X', 'SWITCH', 'NINTENDO DS'];
+    this.listeGenre = ['Action', 'Aventure', 'RPG', 'FPS', 'Simulation', 'Stratégie', 'Sport', 'Course'];
   }
-  onSubmit(){
-
+  onSubmit() {
+    console.log('J\'entre dans le onSubmit()');
+    let dernierIdJeux: number = 0;
+    this.listeJeux.map((jeu) => {
+      if (Number(jeu.id) > dernierIdJeux) {
+        dernierIdJeux = Number(jeu.id);
+      }
+    });
+    this.maxIdJeux = dernierIdJeux + 1;
+    console.log('Id du dernier jeu:', dernierIdJeux, 'Id du nouveau jeu:', this.maxIdJeux);
+    let newJeux: JeuVideo = {
+      id: this.maxIdJeux.toString(),
+      titre: this.formJeu.value.titre,
+      plateforme: this.formJeu.value.plateforme,
+      genre: this.formJeu.value.genre,
+      developpeur: this.formJeu.value.developpeur,
+      dateSortie: this.formJeu.value.dateDeSortie,
+      stock: this.formJeu.value.stock,
+      imageUrl: this.formJeu.value.imageUrl,
+    }
+    console.log('Nouveau jeu : ', newJeux);
+    this.httpService.addNewJeu(newJeux).subscribe({
+      next: (jeu) => {
+        console.log('Jeu ajouté avec succès:', jeu);
+        this.router.navigateByUrl('page-jeux');
+      },
+      error: (error) => {
+        console.error('Erreur lors de l\'ajout du jeu:', error);
+      }
+    });
   }
 }

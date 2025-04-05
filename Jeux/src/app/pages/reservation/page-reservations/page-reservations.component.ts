@@ -22,8 +22,6 @@ import { AjouterReservationComponent } from "../ajouter-reservation/ajouter-rese
 })
 export class PageReservationsComponent implements OnInit {
   private readonly httpService: HttpService = inject(HttpService);
-  private readonly httpClient: HttpClient = inject(HttpClient);
-  private readonly router: Router = inject(Router);
   listReservations!: Reservation[];
   ngOnInit() {
     this.httpService.getReservations().subscribe(reservations => { this.listReservations = reservations });
