@@ -62,14 +62,14 @@
             }
         </mat-form-field>
         <mat-form-field>
-            <mat-label for="dateDeSortie">Date de sortie</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="dateDeSortie" required>
+            <mat-label for="dateSortie">Date de sortie</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateSortie" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-            @if(formJeu.get('dateDeSortie')?.invalid && formJeu.get('dateDeSortie')?.errors &&
-            (formJeu.get('dateDeSortie')?.dirty || formJeu.get('dateDeSortie')?.touched))
+            @if(formJeu.get('dateSortie')?.invalid && formJeu.get('dateSortie')?.errors &&
+            (formJeu.get('dateSortie')?.dirty || formJeu.get('dateSortie')?.touched))
             {
-                @if(formJeu.get('dateDeSortie')?.hasError('required')){
+                @if(formJeu.get('dateSortie')?.hasError('required')){
                     <span class="text-danger">Ce champs doit être rempli</span>
                 }
             }

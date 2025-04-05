@@ -35,11 +35,18 @@ export class ModifierJeuComponent {
     plateforme: new FormControl('', [Validators.required, Validators.email]),
     genre: new FormControl('', [Validators.required]),
     developpeur: new FormControl('', [Validators.required]),
-    dateDeSortie: new FormControl('', [Validators.required]),
+    dateSortie: new FormControl('', [Validators.required]),
     stock: new FormControl('', [Validators.required]),
     imageUrl: new FormControl('', [Validators.required, Validators.pattern(this.thumbRegex)]),
   });
+  cuurentJeu!: JeuVideo;
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.httpService.getJeuVideoById(id).subscribe(jeu => {
+        this.formJeu.patchValue(jeu);
+      });
+    }
     this.httpService.getJeuxVideo().subscribe((jeux: JeuVideo[]) => {
       this.listeJeux = jeux;
       console.log('Liste des jeux:', this.listeJeux);

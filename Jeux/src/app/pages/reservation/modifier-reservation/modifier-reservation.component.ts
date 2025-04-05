@@ -38,7 +38,6 @@ export class ModifierReservationComponent implements OnInit {
   currentReservation!: Reservation;
   listeJeux: JeuVideo[] = [];
   listeReservations: Reservation[] = [];
-  maxIdReservation: number = 0;
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {

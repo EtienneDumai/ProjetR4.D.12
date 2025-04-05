@@ -7,7 +7,7 @@
       "idJeuReserve": "6",
       "plateforme": "Nintendo 64",
       "dateDeReservation": "2023-10-01",
-      "statutReservation": "Confirmée",
+      "statutReservation": "En attente",
       "titreJeuReserve": "Assetto Corsa",
       "id": "1"
     },
@@ -23,15 +23,15 @@
       "id": "2"
     },
     {
-      "id": "3",
       "nomClient": "Yann",
       "emailClient": "ycarpentier@iutbayonne.univ-pau.fr",
       "numTelephoneClient": "0606060606",
       "idJeuReserve": "5",
-      "titreJeuReserve": "DCS World",
       "plateforme": "PC",
       "dateDeReservation": "2025-03-10T23:00:00.000Z",
-      "statutReservation": "Confirmée"
+      "statutReservation": "Annulée",
+      "titreJeuReserve": "DCS World",
+      "id": "3"
     }
   ],
   "Jeux": [
