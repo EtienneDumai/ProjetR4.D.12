@@ -1,16 +1,5 @@
 {
-  "Reservation": [
-    {
-      "nomClient": "kjhigufydtsyfguhijkolmkh",
-      "emailClient": "etienne.dumai@gmail.com",
-      "numTelephoneClient": "0782501004",
-      "idJeuReserve": "2",
-      "plateforme": "Nintendo DS",
-      "dateDeReservation": "2025-12-03T23:00:00.000Z",
-      "statutReservation": "Confirmée",
-      "id": "1"
-    }
-  ],
+  "Reservation": [],
   "Jeux": [
     {
       "id": "1",
@@ -92,51 +81,6 @@
       "developpeur": "HoYoverse",
       "dateSortie": "2020-09-28",
       "stock": 8
-    },
-    {
-      "id": "10",
-      "titre": "Spider-Man",
-      "plateforme": "PS5",
-      "genre": "Action-aventure",
-      "developpeur": "Insomniac Games",
-      "dateSortie": "2018-09-07",
-      "stock": 5
-    },
-    {
-      "id": "11",
-      "titre": "Zelda: Breath of the Wild",
-      "plateforme": "Switch",
-      "genre": "Aventure",
-      "developpeur": "Nintendo",
-      "dateSortie": "2017-03-03",
-      "stock": 11
-    },
-    {
-      "id": "12",
-      "titre": "Forza Horizon 5",
-      "plateforme": "Xbox Series X",
-      "genre": "Course",
-      "developpeur": "Playground Games",
-      "dateSortie": "2021-11-09",
-      "stock": 6
-    },
-    {
-      "id": "13",
-      "titre": "The Last of Us Part II",
-      "plateforme": "PS4",
-      "genre": "Action-aventure",
-      "developpeur": "Naughty Dog",
-      "dateSortie": "2020-06-19",
-      "stock": 4
-    },
-    {
-      "id": "14",
-      "titre": "Hades",
-      "plateforme": "PC",
-      "genre": "Rogue-like",
-      "developpeur": "Supergiant Games",
-      "dateSortie": "2020-09-17",
-      "stock": 7
     }
   ]
 }

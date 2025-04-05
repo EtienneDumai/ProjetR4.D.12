@@ -24,7 +24,11 @@ export class PageJeuxComponent implements OnInit {
     this.httpService.getJeuxVideo().subscribe(jeux => { this.listJeux = jeux });
   }
   deleteJeu(id: string) {
-    this.httpService.onDeleteJeu(id);
+    this.httpService.onDeleteJeu(id).subscribe(success => {
+      if (success) {
+        this.listJeux = this.listJeux.filter(jeu => jeu.id !== id);
+      }
+    });
   }
   addJeu() {
     this.httpService.addJeu();

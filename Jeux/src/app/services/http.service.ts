@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation.model';
-import { Observable, of, switchMap } from 'rxjs';
+import { catchError, map, Observable, of, switchMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { JeuVideo } from '../models/jeu-video.model';
 import { Router, RouterModule, Routes } from '@angular/router';
@@ -23,18 +23,21 @@ export class HttpService {
   updateReservation(id: string, data: any): Observable<Reservation> {
     return this.http.put<Reservation>(`http://localhost:3000/Reservation/${id}`, data);
   }
-  onDeleteReservation(idReservation: string) {
-    this.http
-      .delete(`http://localhost:3000/Reservation/${idReservation}`)
-      .subscribe({
-        next: () => {
-          console.log("Supprimé avec succès");
-        },
-        error: (err) => {
-          console.error("Erreur lors de la suppression :", err);
-        }
-      });
-    this.router.navigateByUrl('liste-reservations');
+  onDeleteReservation(idReservation: string): Observable<boolean> {
+    // On effectue une requête HTTP DELETE à l'URL spécifiée pour supprimer le jeu correspondant.
+    return this.http.delete(`http://localhost:3000/Reservation/${idReservation}`).pipe(
+      // 'tap' permet d'exécuter une action secondaire (ici, l'affichage d'un message dans la console)
+      // sans modifier la valeur émise par l'observable.
+      tap(() => console.log("Supprimé avec succès")),
+      // 'mapTo' transforme toute valeur émise en 'true', indiquant que la suppression a réussi.
+      map(() =>true),
+      // 'catchError' intercepte toute erreur survenue lors de la requête HTTP.
+      // En cas d'erreur, on affiche un message d'erreur dans la console et on renvoie un observable émettant 'false'.
+      catchError(err => {
+        console.error("Erreur lors de la suppression :", err);
+        return of(false);
+      })
+    );
   }
   editReservation(id: string) {
     this.router.navigate(['liste-reservation/edit', id]);
@@ -62,18 +65,21 @@ export class HttpService {
       })
     );
   }
-  onDeleteJeu(idJeu: string) {
-    this.http
-      .delete(`http://localhost:3000/Jeux/${idJeu}`)
-      .subscribe({
-        next: () => {
-          console.log("Supprimé avec succès");
-        },
-        error: (err) => {
-          console.error("Erreur lors de la suppression :", err);
-        }
-      });
-    this.router.navigateByUrl('page-jeux');
+  onDeleteJeu(idJeu: string): Observable<boolean> {
+    // On effectue une requête HTTP DELETE à l'URL spécifiée pour supprimer le jeu correspondant.
+    return this.http.delete(`http://localhost:3000/Jeux/${idJeu}`).pipe(
+      // 'tap' permet d'exécuter une action secondaire (ici, l'affichage d'un message dans la console)
+      // sans modifier la valeur émise par l'observable.
+      tap(() => console.log("Supprimé avec succès")),
+      // 'mapTo' transforme toute valeur émise en 'true', indiquant que la suppression a réussi.
+      map(() =>true),
+      // 'catchError' intercepte toute erreur survenue lors de la requête HTTP.
+      // En cas d'erreur, on affiche un message d'erreur dans la console et on renvoie un observable émettant 'false'.
+      catchError(err => {
+        console.error("Erreur lors de la suppression :", err);
+        return of(false);
+      })
+    );
   }
   editJeu(id: string) {
     this.router.navigate(['page-jeux/edit', id]);

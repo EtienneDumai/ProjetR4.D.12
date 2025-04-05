@@ -22,12 +22,18 @@ import { AjouterReservationComponent } from "../ajouter-reservation/ajouter-rese
 })
 export class PageReservationsComponent implements OnInit {
   private readonly httpService: HttpService = inject(HttpService);
+  private readonly router: Router = inject(Router);
   listReservations!: Reservation[];
   ngOnInit() {
     this.httpService.getReservations().subscribe(reservations => { this.listReservations = reservations });
   }
   deleteReservation(id: string) {
-    this.httpService.onDeleteReservation(id);
+    this.httpService.onDeleteReservation(id).subscribe(success => {
+      if (success) {
+        this.listReservations = this.listReservations.filter(reservation => reservation.id !== id);
+      }
+    });
+    
   }
   addReservation() {
     this.httpService.addReservation();
